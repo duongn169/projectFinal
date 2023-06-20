@@ -2,10 +2,10 @@
 header('Content-Type: application/json');
 
 // dang nhap vao database
-include("config.php");
+include("configProfile.php");
 
 // Doc gia tri tu database
-$sql = "select * from IOT_project where id>(select max(id) from IOT_project)-20";
+$sql = "select * from IOT_project where id>(select max(id) from IOT_project)-5";
 $result = mysqli_query($conn, $sql);
 
 $data = array();

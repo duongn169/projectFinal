@@ -2,7 +2,7 @@
 <html lang="en">
 
 
-<!-- register24:03-->
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
@@ -22,25 +22,22 @@
         <div class="account-page">
             <div class="account-center">
                 <div class="account-box">
-                    <form action="http://dreamguys.co.in/preclinic/template/index.html" class="form-signin">
-						<div class="account-logo">
-                            <a href="index.html"><img src="assets/img/logo-dark.png" alt=""></a>
-                        </div>
+                    <form action="signup.php" class="form-signin" method="post">
                         <div class="form-group">
                             <label>Username</label>
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control" name="username" required>
                         </div>
                         <div class="form-group">
-                            <label>Email Address</label>
-                            <input type="email" class="form-control">
+                            <label>Email</label>
+                            <input type="email" class="form-control" name="email">
                         </div>
                         <div class="form-group">
                             <label>Password</label>
-                            <input type="password" class="form-control">
+                            <input type="password" class="form-control" name="password" required>
                         </div>
                         <div class="form-group">
                             <label>Mobile Number</label>
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control" name="phone">
                         </div>
                         <div class="form-group checkbox">
                             <label>
@@ -48,10 +45,10 @@
                             </label>
                         </div>
                         <div class="form-group text-center">
-                            <button class="btn btn-primary account-btn" type="submit">Signup</button>
+                            <button class="btn btn-primary account-btn" type="submit" name="dangky">Signup</button>
                         </div>
                         <div class="text-center login-link">
-                            Already have an account? <a href="login.html">Login</a>
+                            Already have an account? <a href="login.php">Login</a>
                         </div>
                     </form>
                 </div>
@@ -59,11 +56,12 @@
         </div>
     </div>
     <script src="assets/js/jquery-3.2.1.min.js"></script>
-	<script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/popper.min.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
     <script src="assets/js/app.js"></script>
 </body>
 
 
 <!-- register24:03-->
+
 </html>
