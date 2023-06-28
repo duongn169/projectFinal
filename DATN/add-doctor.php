@@ -162,9 +162,6 @@
                         <li>
                             <a href="patients.php"><i class="fa fa-wheelchair"></i> <span>Patients</span></a>
                         </li>
-                        <li>
-                            <a href="appointments.php"><i class="fa fa-calendar"></i> <span>Appointments</span></a>
-                        </li>
 
                         <li class="submenu">
                             <a href="#"><i class="fa fa-columns"></i> <span>Account</span> <span

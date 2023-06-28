@@ -1,3 +1,8 @@
+<?php
+require 'dbconnectView.php';
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -172,10 +177,7 @@
                         <h4 class="page-title">My Profile</h4>
                     </div>
 
-                    <div class="col-sm-5 col-6 text-right m-b-30">
-                        <a href="edit-profile.php" class="btn btn-primary btn-rounded"><i class="fa fa-plus"></i> Edit
-                            Profile</a>
-                    </div>
+
                 </div>
                 <div class="card-box profile-header">
                     <div class="row">
@@ -188,50 +190,96 @@
                                 </div>
                                 <div class="profile-basic">
                                     <div class="row">
-                                        <div class="col-md-5">
-                                            <div class="profile-info-left">
-                                                <h3 class="user-name m-t-0 mb-0">Cristina Groves</h3>
-                                                <small class="text-muted">Gynecologist</small>
-                                                <div class="staff-id">Employee ID : DR-0001</div>
+                                        <?php
+                                        if (isset($_GET['id'])) {
+                                            $user_id = mysqli_real_escape_string($con, $_GET['id']);
+                                            $query = "SELECT * FROM patients WHERE id='$user_id' ";
+                                            $query_run = mysqli_query($con, $query);
 
-                                            </div>
-                                        </div>
-                                        <div class="col-md-7">
-                                            <ul class="personal-info">
-                                                <li>
-                                                    <span class="title">Phone:</span>
-                                                    <span class="text"><a href="#">770-889-6484</a></span>
-                                                </li>
-                                                <li>
-                                                    <span class="title">Email:</span>
-                                                    <span class="text"><a href="#">cristinagroves@example.com</a></span>
-                                                </li>
-                                                <li>
-                                                    <span class="title">Birthday:</span>
-                                                    <span class="text">3rd March</span>
-                                                </li>
-                                                <li>
-                                                    <span class="title">Address:</span>
-                                                    <span class="text">714 Burwell Heights Road, Bridge City, TX,
-                                                        77611</span>
-                                                </li>
-                                                <li>
-                                                    <span class="title">Gender:</span>
-                                                    <span class="text">Female</span>
-                                                </li>
-                                            </ul>
-                                        </div>
+                                            if (mysqli_num_rows($query_run) > 0) {
+                                                $user = mysqli_fetch_array($query_run);
+
+
+                                        ?>
+                                                <div class="col-md-5">
+                                                    <div class="profile-info-left">
+                                                        <h3 class="user-name m-t-0 mb-0">
+                                                            <b>
+                                                                <p class="form-control">
+                                                                    <?= $user['name']; ?>
+                                                                </p>
+                                                            </b>
+                                                        </h3>
+
+                                                        <h3 class="user-name m-t-0 mb-0">
+                                                            <b>
+                                                                <p class="form-control">
+                                                                    <?= $user['age']; ?>
+                                                                </p>
+                                                            </b>
+                                                        </h3>
+                                                        <h3 class="user-name m-t-0 mb-0">
+                                                            <b>
+                                                                <p class="form-control">
+                                                                    <?= $user['gender']; ?>
+                                                                </p>
+                                                            </b>
+                                                        </h3>
+
+
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-7">
+                                                    <ul class="personal-info">
+                                                        <li>
+                                                            <span class="title">Phone:</span>
+                                                            <p class="form-control">
+                                                                <?= $user['phone'];
+                                                                $GLOBALS['phoneNum'] = $user['phone']; ?>
+                                                            </p>
+                                                        </li>
+                                                        <li>
+                                                            <span class="title">Email:</span>
+                                                            <p class="form-control">
+                                                                <?= $user['email']; ?>
+                                                            </p>
+                                                        </li>
+
+                                                        <li>
+                                                            <span class="title">Address:</span>
+                                                            <p class="form-control">
+                                                                <?= $user['address']; ?>
+                                                            </p>
+                                                        </li>
+                                                        <li>
+                                                            <span class="title">Gender:</span>
+                                                            <p class="form-control">
+                                                                <?= $user['gender']; ?>
+                                                            </p>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                        <?php
+                                            } else {
+                                                echo "<h4>No Such Id Found</h4>";
+                                            }
+                                        }
+                                        ?>
+
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
                 <div class="profile-tabs">
                     <ul class="nav nav-tabs nav-tabs-bottom">
                         <li class="nav-item"><a class="nav-link active">Chart</a> </li>
                     </ul>
                 </div>
+
+
                 <div>
                     <div class="row">
                         <div class="col-12 col-md-6 col-lg-6 col-xl-6">
@@ -264,6 +312,7 @@
                     </div>
                 </div>
 
+
             </div>
             <div class="sidebar-overlay" data-reff=""></div>
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -281,5 +330,8 @@
 
 
 <!-- profile23:03-->
+
+
+
 
 </html>

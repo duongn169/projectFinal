@@ -70,7 +70,9 @@
                                             <span class="avatar">L</span>
                                             <div class="media-body">
                                                 <p class="noti-details"><span class="noti-title">Misty Tison</span>
-                                                    added <span class="noti-title">Domenic Houston</span> and <span class="noti-title">Claire Mapes</span> to project <span class="noti-title">Doctor available module</span></p>
+                                                    added <span class="noti-title">Domenic Houston</span> and <span
+                                                        class="noti-title">Claire Mapes</span> to project <span
+                                                        class="noti-title">Doctor available module</span></p>
                                                 <p class="noti-time"><span class="notification-time">8 mins ago</span>
                                                 </p>
                                             </div>
@@ -113,7 +115,9 @@
                     </div>
                 </li>
                 <li class="nav-item dropdown d-none d-sm-block">
-                    <a href="javascript:void(0);" id="open_msg_box" class="hasnotifications nav-link"><i class="fa fa-comment-o"></i> <span class="badge badge-pill bg-danger float-right">8</span></a>
+                    <a href="javascript:void(0);" id="open_msg_box" class="hasnotifications nav-link"><i
+                            class="fa fa-comment-o"></i> <span
+                            class="badge badge-pill bg-danger float-right">8</span></a>
                 </li>
                 <li class="nav-item dropdown has-arrow">
                     <a href="#" class="dropdown-toggle nav-link user-link" data-toggle="dropdown">
@@ -129,7 +133,8 @@
                 </li>
             </ul>
             <div class="dropdown mobile-user-menu float-right">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i
+                        class="fa fa-ellipsis-v"></i></a>
                 <div class="dropdown-menu dropdown-menu-right">
                     <a class="dropdown-item" href="login.html">Logout</a>
                 </div>
@@ -144,18 +149,15 @@
                             <a href="index.php"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a>
                         </li>
 
-                        <li>
-                            <a href="doctors.php"><i class="fa fa-user-md"></i> <span>Doctors</span></a>
-                        </li>
+
                         <li>
                             <a href="patients.php"><i class="fa fa-wheelchair"></i> <span>Patients</span></a>
                         </li>
-                        <li>
-                            <a href="appointments.php"><i class="fa fa-calendar"></i> <span>Appointments</span></a>
-                        </li>
+
 
                         <li class="submenu">
-                            <a href="#"><i class="fa fa-columns"></i> <span>Account</span> <span class="menu-arrow"></span></a>
+                            <a href="#"><i class="fa fa-columns"></i> <span>Account</span> <span
+                                    class="menu-arrow"></span></a>
                             <ul style="display: none;">
                                 <li><a href="login.php"> Login </a></li>
                                 <li><a href="register.php"> Register </a></li>
@@ -171,21 +173,14 @@
         <div class="page-wrapper">
             <div class="content">
                 <div class="row">
-                    <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
-                        <div class="dash-widget">
-                            <span class="dash-widget-bg1"><i class="fa fa-stethoscope" aria-hidden="true"></i></span>
-                            <div class="dash-widget-info text-right">
-                                <h3>98</h3>
-                                <span class="widget-title1">Doctors <i class="fa fa-check" aria-hidden="true"></i></span>
-                            </div>
-                        </div>
-                    </div>
+
                     <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
                         <div class="dash-widget">
                             <span class="dash-widget-bg2"><i class="fa fa-user-o"></i></span>
                             <div class="dash-widget-info text-right">
                                 <h3>1072</h3>
-                                <span class="widget-title2">Patients <i class="fa fa-check" aria-hidden="true"></i></span>
+                                <span class="widget-title2">Patients <i class="fa fa-check"
+                                        aria-hidden="true"></i></span>
                             </div>
                         </div>
                     </div>
@@ -203,7 +198,8 @@
                             <span class="dash-widget-bg4"><i class="fa fa-heartbeat" aria-hidden="true"></i></span>
                             <div class="dash-widget-info text-right">
                                 <h3>618</h3>
-                                <span class="widget-title4">Pending <i class="fa fa-check" aria-hidden="true"></i></span>
+                                <span class="widget-title4">Pending <i class="fa fa-check"
+                                        aria-hidden="true"></i></span>
                             </div>
                         </div>
                     </div>
@@ -240,7 +236,8 @@
                     <div class="col-12 col-md-6 col-lg-8 col-xl-8">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title d-inline-block">Upcoming Appointments</h4> <a href="appointments.html" class="btn btn-primary float-right">View all</a>
+                                <h4 class="card-title d-inline-block">Upcoming Appointments</h4> <a
+                                    href="appointments.html" class="btn btn-primary float-right">View all</a>
                             </div>
                             <div class="card-body p-0">
                                 <div class="table-responsive">
@@ -269,7 +266,8 @@
                                                     <p>7.00 PM</p>
                                                 </td>
                                                 <td class="text-right">
-                                                    <a href="appointments.html" class="btn btn-outline-primary take-btn">Take up</a>
+                                                    <a href="appointments.html"
+                                                        class="btn btn-outline-primary take-btn">Take up</a>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -287,7 +285,8 @@
                                                     <p>7.00 PM</p>
                                                 </td>
                                                 <td class="text-right">
-                                                    <a href="appointments.html" class="btn btn-outline-primary take-btn">Take up</a>
+                                                    <a href="appointments.html"
+                                                        class="btn btn-outline-primary take-btn">Take up</a>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -305,7 +304,8 @@
                                                     <p>7.00 PM</p>
                                                 </td>
                                                 <td class="text-right">
-                                                    <a href="appointments.html" class="btn btn-outline-primary take-btn">Take up</a>
+                                                    <a href="appointments.html"
+                                                        class="btn btn-outline-primary take-btn">Take up</a>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -323,7 +323,8 @@
                                                     <p>7.00 PM</p>
                                                 </td>
                                                 <td class="text-right">
-                                                    <a href="appointments.html" class="btn btn-outline-primary take-btn">Take up</a>
+                                                    <a href="appointments.html"
+                                                        class="btn btn-outline-primary take-btn">Take up</a>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -341,7 +342,8 @@
                                                     <p>7.00 PM</p>
                                                 </td>
                                                 <td class="text-right">
-                                                    <a href="appointments.html" class="btn btn-outline-primary take-btn">Take up</a>
+                                                    <a href="appointments.html"
+                                                        class="btn btn-outline-primary take-btn">Take up</a>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -360,7 +362,9 @@
                                     <li>
                                         <div class="contact-cont">
                                             <div class="float-left user-img m-r-10">
-                                                <a href="profile.html" title="John Doe"><img src="assets/img/user.jpg" alt="" class="w-40 rounded-circle"><span class="status online"></span></a>
+                                                <a href="profile.html" title="John Doe"><img src="assets/img/user.jpg"
+                                                        alt="" class="w-40 rounded-circle"><span
+                                                        class="status online"></span></a>
                                             </div>
                                             <div class="contact-info">
                                                 <span class="contact-name text-ellipsis">John Doe</span>
@@ -371,7 +375,10 @@
                                     <li>
                                         <div class="contact-cont">
                                             <div class="float-left user-img m-r-10">
-                                                <a href="profile.html" title="Richard Miles"><img src="assets/img/user.jpg" alt="" class="w-40 rounded-circle"><span class="status offline"></span></a>
+                                                <a href="profile.html" title="Richard Miles"><img
+                                                        src="assets/img/user.jpg" alt=""
+                                                        class="w-40 rounded-circle"><span
+                                                        class="status offline"></span></a>
                                             </div>
                                             <div class="contact-info">
                                                 <span class="contact-name text-ellipsis">Richard Miles</span>
@@ -382,7 +389,9 @@
                                     <li>
                                         <div class="contact-cont">
                                             <div class="float-left user-img m-r-10">
-                                                <a href="profile.html" title="John Doe"><img src="assets/img/user.jpg" alt="" class="w-40 rounded-circle"><span class="status away"></span></a>
+                                                <a href="profile.html" title="John Doe"><img src="assets/img/user.jpg"
+                                                        alt="" class="w-40 rounded-circle"><span
+                                                        class="status away"></span></a>
                                             </div>
                                             <div class="contact-info">
                                                 <span class="contact-name text-ellipsis">John Doe</span>
@@ -393,7 +402,10 @@
                                     <li>
                                         <div class="contact-cont">
                                             <div class="float-left user-img m-r-10">
-                                                <a href="profile.html" title="Richard Miles"><img src="assets/img/user.jpg" alt="" class="w-40 rounded-circle"><span class="status online"></span></a>
+                                                <a href="profile.html" title="Richard Miles"><img
+                                                        src="assets/img/user.jpg" alt=""
+                                                        class="w-40 rounded-circle"><span
+                                                        class="status online"></span></a>
                                             </div>
                                             <div class="contact-info">
                                                 <span class="contact-name text-ellipsis">Richard Miles</span>
@@ -404,7 +416,9 @@
                                     <li>
                                         <div class="contact-cont">
                                             <div class="float-left user-img m-r-10">
-                                                <a href="profile.html" title="John Doe"><img src="assets/img/user.jpg" alt="" class="w-40 rounded-circle"><span class="status offline"></span></a>
+                                                <a href="profile.html" title="John Doe"><img src="assets/img/user.jpg"
+                                                        alt="" class="w-40 rounded-circle"><span
+                                                        class="status offline"></span></a>
                                             </div>
                                             <div class="contact-info">
                                                 <span class="contact-name text-ellipsis">John Doe</span>
@@ -415,7 +429,10 @@
                                     <li>
                                         <div class="contact-cont">
                                             <div class="float-left user-img m-r-10">
-                                                <a href="profile.html" title="Richard Miles"><img src="assets/img/user.jpg" alt="" class="w-40 rounded-circle"><span class="status away"></span></a>
+                                                <a href="profile.html" title="Richard Miles"><img
+                                                        src="assets/img/user.jpg" alt=""
+                                                        class="w-40 rounded-circle"><span
+                                                        class="status away"></span></a>
                                             </div>
                                             <div class="contact-info">
                                                 <span class="contact-name text-ellipsis">Richard Miles</span>
@@ -435,7 +452,8 @@
                     <div class="col-12 col-md-6 col-lg-8 col-xl-8">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title d-inline-block">New Patients </h4> <a href="patients.html" class="btn btn-primary float-right">View all</a>
+                                <h4 class="card-title d-inline-block">New Patients </h4> <a href="patients.html"
+                                    class="btn btn-primary float-right">View all</a>
                             </div>
                             <div class="card-block">
                                 <div class="table-responsive">
@@ -443,42 +461,50 @@
                                         <tbody>
                                             <tr>
                                                 <td>
-                                                    <img width="28" height="28" class="rounded-circle" src="assets/img/user.jpg" alt="">
+                                                    <img width="28" height="28" class="rounded-circle"
+                                                        src="assets/img/user.jpg" alt="">
                                                     <h2>John Doe</h2>
                                                 </td>
                                                 <td>Johndoe21@gmail.com</td>
                                                 <td>+1-202-555-0125</td>
-                                                <td><button class="btn btn-primary btn-primary-one float-right">Fever</button>
+                                                <td><button
+                                                        class="btn btn-primary btn-primary-one float-right">Fever</button>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    <img width="28" height="28" class="rounded-circle" src="assets/img/user.jpg" alt="">
+                                                    <img width="28" height="28" class="rounded-circle"
+                                                        src="assets/img/user.jpg" alt="">
                                                     <h2>Richard</h2>
                                                 </td>
                                                 <td>Richard123@yahoo.com</td>
                                                 <td>202-555-0127</td>
-                                                <td><button class="btn btn-primary btn-primary-two float-right">Cancer</button>
+                                                <td><button
+                                                        class="btn btn-primary btn-primary-two float-right">Cancer</button>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    <img width="28" height="28" class="rounded-circle" src="assets/img/user.jpg" alt="">
+                                                    <img width="28" height="28" class="rounded-circle"
+                                                        src="assets/img/user.jpg" alt="">
                                                     <h2>Villiam</h2>
                                                 </td>
                                                 <td>Richard123@yahoo.com</td>
                                                 <td>+1-202-555-0106</td>
-                                                <td><button class="btn btn-primary btn-primary-three float-right">Eye</button>
+                                                <td><button
+                                                        class="btn btn-primary btn-primary-three float-right">Eye</button>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    <img width="28" height="28" class="rounded-circle" src="assets/img/user.jpg" alt="">
+                                                    <img width="28" height="28" class="rounded-circle"
+                                                        src="assets/img/user.jpg" alt="">
                                                     <h2>Martin</h2>
                                                 </td>
                                                 <td>Richard123@yahoo.com</td>
                                                 <td>776-2323 89562015</td>
-                                                <td><button class="btn btn-primary btn-primary-four float-right">Fever</button>
+                                                <td><button
+                                                        class="btn btn-primary btn-primary-four float-right">Fever</button>
                                                 </td>
                                             </tr>
                                         </tbody>

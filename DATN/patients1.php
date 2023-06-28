@@ -75,9 +75,49 @@ require 'dbconnectView.php';
                                         </div>
                                     </a>
                                 </li>
-
-
-
+                                <li class="notification-message">
+                                    <a href="activities.html">
+                                        <div class="media">
+                                            <span class="avatar">L</span>
+                                            <div class="media-body">
+                                                <p class="noti-details"><span class="noti-title">Misty Tison</span>
+                                                    added <span class="noti-title">Domenic Houston</span> and <span
+                                                        class="noti-title">Claire Mapes</span> to project <span
+                                                        class="noti-title">Doctor available module</span></p>
+                                                <p class="noti-time"><span class="notification-time">8 mins ago</span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="notification-message">
+                                    <a href="activities.html">
+                                        <div class="media">
+                                            <span class="avatar">G</span>
+                                            <div class="media-body">
+                                                <p class="noti-details"><span class="noti-title">Rolland Webber</span>
+                                                    completed task <span class="noti-title">Patient and Doctor video
+                                                        conferencing</span></p>
+                                                <p class="noti-time"><span class="notification-time">12 mins ago</span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="notification-message">
+                                    <a href="activities.html">
+                                        <div class="media">
+                                            <span class="avatar">V</span>
+                                            <div class="media-body">
+                                                <p class="noti-details"><span class="noti-title">Bernardo Galaviz</span>
+                                                    added new task <span class="noti-title">Private chat module</span>
+                                                </p>
+                                                <p class="noti-time"><span class="notification-time">2 days ago</span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
                             </ul>
                         </div>
                         <div class="topnav-dropdown-footer">
@@ -86,11 +126,14 @@ require 'dbconnectView.php';
                     </div>
                 </li>
                 <li class="nav-item dropdown d-none d-sm-block">
-                    <a href="javascript:void(0);" id="open_msg_box" class="hasnotifications nav-link"><i class="fa fa-comment-o"></i> <span class="badge badge-pill bg-danger float-right">8</span></a>
+                    <a href="javascript:void(0);" id="open_msg_box" class="hasnotifications nav-link"><i
+                            class="fa fa-comment-o"></i> <span
+                            class="badge badge-pill bg-danger float-right">8</span></a>
                 </li>
                 <li class="nav-item dropdown has-arrow">
                     <a href="#" class="dropdown-toggle nav-link user-link" data-toggle="dropdown">
-                        <span class="user-img"><img class="rounded-circle" src="assets/img/user.jpg" width="40" alt="Admin">
+                        <span class="user-img"><img class="rounded-circle" src="assets/img/user.jpg" width="40"
+                                alt="Admin">
                             <span class="status online"></span></span>
                         <span>Admin</span>
                     </a>
@@ -101,7 +144,8 @@ require 'dbconnectView.php';
                 </li>
             </ul>
             <div class="dropdown mobile-user-menu float-right">
-                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
+                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i
+                        class="fa fa-ellipsis-v"></i></a>
                 <div class="dropdown-menu dropdown-menu-right">
 
                     <a class="dropdown-item" href="login.php">Logout</a>
@@ -116,15 +160,20 @@ require 'dbconnectView.php';
                         <li>
                             <a href="index.php"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a>
                         </li>
-
+                        <li>
+                            <a href="doctors.php"><i class="fa fa-user-md"></i> <span>Doctors</span></a>
+                        </li>
                         <li class="active">
                             <a href="patients.php"><i class="fa fa-wheelchair"></i> <span>Patients</span></a>
                         </li>
-
+                        <li>
+                            <a href="appointments.php"><i class="fa fa-calendar"></i> <span>Appointments</span></a>
+                        </li>
 
 
                         <li class="submenu">
-                            <a href="#"><i class="fa fa-columns"></i> <span>Account</span> <span class="menu-arrow"></span></a>
+                            <a href="#"><i class="fa fa-columns"></i> <span>Account</span> <span
+                                    class="menu-arrow"></span></a>
                             <ul style="display: none;">
                                 <li><a href="login.php"> Login </a></li>
                                 <li><a href="register.php"> Register </a></li>
@@ -140,7 +189,15 @@ require 'dbconnectView.php';
         <div class="page-wrapper">
             <?php include('message.php'); ?>
             <div class="content">
-
+                <div class="row">
+                    <div class="col-sm-4 col-3">
+                        <h4 class="page-title">Patients</h4>
+                    </div>
+                    <div class="col-sm-8 col-9 text-right m-b-20">
+                        <a href="add-patient.php" class="btn btn btn-primary btn-rounded float-right"><i
+                                class="fa fa-plus"></i> Add Patient</a>
+                    </div>
+                </div>
                 <div class="row">
                     <div class="col-md-12">
                         <div class="table-responsive">
@@ -148,9 +205,9 @@ require 'dbconnectView.php';
                                 <thead>
                                     <tr>
                                         <th>Id</th>
-                                        <th>Name</th>
-                                        <th>Age</th>
-                                        <th>Gender</th>
+                                        <th>First Name</th>
+                                        <th>Last Name</th>
+
                                         <th>Email</th>
                                         <th>Phone</th>
                                         <th>Adress</th>
@@ -162,27 +219,30 @@ require 'dbconnectView.php';
                                 <tbody>
 
                                     <?php
-                                    $query = "SELECT * FROM patients";
+                                    $query = "SELECT * FROM employees";
                                     $query_run = mysqli_query($con, $query);
                                     if (mysqli_num_rows($query_run) > 0) {
                                         foreach ($query_run as $user) {
                                     ?>
-                                            <tr>
-                                                <td><?= $user['id']; ?></td>
-                                                <td><?= $user['name']; ?></td>
-                                                <td><?= $user['age']; ?></td>
-                                                <td><?= $user['gender']; ?></td>
-                                                <td><?= $user['email']; ?></td>
-                                                <td><?= $user['phone']; ?></td>
-                                                <td><?= $user['address']; ?></td>
-                                                <td>
-                                                    <a href="view-patient.php?id=<?= $user['id']; ?>" class="btn btn-info btn-sm">View</a>
-                                                    <a href="edit-patient.php?id=<?= $user['id']; ?>" class="btn btn-success btn-sm">Edit</a>
-                                                    <form action="code.php" method="POST" class="d-inline">
-                                                        <button type="submit" name="delete_user" value="<?= $user['id']; ?>" class="btn btn-danger btn-sm">Delete</button>
-                                                    </form>
-                                                </td>
-                                            </tr>
+                                    <tr>
+                                        <td><?= $user['id']; ?></td>
+                                        <td><?= $user['first_name']; ?></td>
+                                        <td><?= $user['last_name']; ?></td>
+
+                                        <td><?= $user['email']; ?></td>
+                                        <td><?= $user['phone']; ?></td>
+                                        <td><?= $user['address']; ?></td>
+                                        <td>
+                                            <a href="view-patient.php?id=<?= $user['id']; ?>"
+                                                class="btn btn-info btn-sm">View</a>
+                                            <a href="edit-patient.php?id=<?= $user['id']; ?>"
+                                                class="btn btn-success btn-sm">Edit</a>
+                                            <form action="code.php" method="POST" class="d-inline">
+                                                <button type="submit" name="delete_user" value="<?= $user['id']; ?>"
+                                                    class="btn btn-danger btn-sm">Delete</button>
+                                            </form>
+                                        </td>
+                                    </tr>
                                     <?php
                                         }
                                     } else {
