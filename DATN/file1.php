@@ -1,2 +1,10 @@
-<?php
-    $text = "Hello World";
+<?php 
+
+session_start();
+
+echo $_SESSION['userId'];
+
+?>
+
+
+

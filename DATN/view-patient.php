@@ -1,5 +1,13 @@
 <?php
+@ob_start();
+session_start();
+
+
 require 'dbconnectView.php';
+
+
+
+
 
 
 ?>
@@ -192,13 +200,13 @@ require 'dbconnectView.php';
                                     <div class="row">
                                         <?php
                                         if (isset($_GET['id'])) {
+
                                             $user_id = mysqli_real_escape_string($con, $_GET['id']);
                                             $query = "SELECT * FROM patients WHERE id='$user_id' ";
                                             $query_run = mysqli_query($con, $query);
 
                                             if (mysqli_num_rows($query_run) > 0) {
                                                 $user = mysqli_fetch_array($query_run);
-
 
                                         ?>
                                                 <div class="col-md-5">
@@ -331,6 +339,14 @@ require 'dbconnectView.php';
 
 <!-- profile23:03-->
 
+<?php 
+
+$user_id;
+$user_id = $_GET['id'];
+echo $user_id;
+
+$_SESSION['userId'] = $user_id;
+?>
 
 
 
