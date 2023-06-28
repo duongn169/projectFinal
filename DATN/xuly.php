@@ -10,7 +10,7 @@ $password = $_POST['password'];
 $sql = "select * from member where username='$username'";
 
 
-$conn = mysqli_connect("192.168.1.214", "pi", "27122001", "dataDoctor");
+$conn = mysqli_connect("192.168.169.44", "pi", "27122001", "dataDoctor");
 $username = stripcslashes($username);
 $password = stripcslashes($password);
 $username = mysqli_real_escape_string($conn, $username);
