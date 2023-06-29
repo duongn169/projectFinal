@@ -320,7 +320,32 @@ require 'dbconnectView.php';
                     </div>
                 </div>
 
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">General Report</th>
+                            <th scope="col">Blood</th>
+                            <th scope="col">Health Care</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">
+                                <?php 
+                                 $command = 'python app.py';
+                                 $output = shell_exec($command);
+                                 echo $output;
+                            
+                                 
+                                 ?>
+                                
 
+                            </th>
+                            <td>60</td>
+                            <td>Good</td>
+
+                        </tr>
+                </table>
             </div>
             <div class="sidebar-overlay" data-reff=""></div>
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
