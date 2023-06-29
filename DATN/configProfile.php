@@ -1,6 +1,6 @@
 <?php
 // Connect to database
-$server = "192.168.169.44";
+$server = "192.168.1.214";
 $user = "pi";
 $pass = "27122001";
 $dbname = "healthData";

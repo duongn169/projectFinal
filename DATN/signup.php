@@ -1,7 +1,7 @@
 <?php
 header('Content-Type: text/html; charset=utf-8');
 // Kết nối cơ sở dữ liệu
-$conn = mysqli_connect('192.168.169.44', 'pi', '27122001', 'dataDoctor') or die('Connection failed');
+$conn = mysqli_connect('192.168.1.214', 'pi', '27122001', 'dataDoctor') or die('Connection failed');
 mysqli_set_charset($conn, "utf8");
 
 // Dùng isset để kiểm tra Form
