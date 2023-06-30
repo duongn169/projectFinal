@@ -5,7 +5,7 @@ header('Content-Type: application/json');
 include("config.php");
 
 // Doc gia tri tu database
-$sql = "select * from IOT_project where id>(select max(id) from IOT_project)-10";
+$sql = "select * from IOT_project where id>(select max(id) from IOT_project)-20";
 $result = mysqli_query($conn, $sql);
 
 $data = array();
