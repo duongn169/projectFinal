@@ -337,12 +337,13 @@ require 'dbconnectView.php';
                         <tr>
                             <th scope="row">
                                 <?php 
-                                 $command = 'python app.py';
-                                 $output = shell_exec($command);
-                                 echo $output;
+                                $user_id;
+                                $user_id = $_GET['id'];
+                                $command = 'python app.py '. escapeshellarg($user_id);
+                                $output = shell_exec($command);
+                                echo $output;
                             
-                                 
-                                 ?>
+                                ?>
 
 
                             </th>
@@ -376,6 +377,7 @@ $user_id = $_GET['id'];
 echo $user_id;
 
 $_SESSION['userId'] = $user_id;
+
 ?>
 
 
