@@ -18,6 +18,7 @@ public class signup_activity extends AppCompatActivity {
     EditText etPhoneNumber, etFullName, etPassword,etConfirmPassword, etGender, etAge, etAddress;
     MaterialButton btnSignup, backToLogin;
 
+    String rIP = MainActivity.globalIPAddress;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -84,7 +85,9 @@ public class signup_activity extends AppCompatActivity {
                                 data[4] = age;
                                 data[5] = gender;
 
-                                PutData putData = new PutData("http://192.168.2.7/androidAppPHP/signup.php", "POST", field, data);
+                                String url = "http://" + rIP + "/androidAppPHP/signup.php";
+                                PutData putData = new PutData(url, "POST", field, data);
+
                                 if (putData.startPut()) {
                                     if (putData.onComplete()) {
                                         String result = putData.getResult();
