@@ -71,28 +71,24 @@ const chartdata1 = {
         label: 'bpm',
         backgroundColor: 'rgb(255, 99, 132)',
         borderColor: 'rgb(255, 99, 132)',
-        data: bpm
+        data: bpm,
+        fill: false
     },
     {
         label: 'spo2',
         backgroundColor: 'rgb(99, 255, 132)',
         borderColor: 'rgb(99, 255, 132)',
-        data: spo2
+        data: spo2,
+        fill: false
     },
 
 
     ]
 };
 const config1 = {
-    type: 'bar',
+    type: 'line',
     data: chartdata1,
-    options: {
-        scales: {
-            y: {
-                beginAtZero: true
-            }
-        }
-    }
+
 };
 var myChart1 = new Chart(
     document.getElementById('mybar1'),

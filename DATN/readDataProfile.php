@@ -14,7 +14,7 @@ include("configProfile.php");
 
 
 // Doc gia tri tu database
-$sql = "select * from IOT_project where user_id= '$userId' and id>(select max(id) from IOT_project)-5";
+$sql = "select * from IOT_project where user_id= '$userId' and id>(select max(id) from IOT_project)-20";
 $result = mysqli_query($conn, $sql);
 
 $data = array();
