@@ -26,8 +26,8 @@ public class dashboard extends AppCompatActivity {
 
     final Context context = this;
     MaterialButton btnLogout;
-
     String rPhone = MainActivity.globalPhoneNumber;
+    String rIP = MainActivity.globalIPAddress;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -98,7 +98,10 @@ public class dashboard extends AppCompatActivity {
         data[0] = "2";
 
 
-        PutData putData = new PutData("http://192.168.2.7/androidAppPHP/getData.php", "POST", field, data);
+
+        String url = "http://" + rIP + "/androidAppPHP/getData.php";
+        PutData putData = new PutData(url, "POST", field, data);
+
         if (putData.startPut()) {
             if (putData.onComplete()) {
                 String result = putData.getResult();
@@ -118,8 +121,8 @@ public class dashboard extends AppCompatActivity {
         data[0] = rPhone;
 
 
-
-        PutData putData = new PutData("http://192.168.2.7/androidAppPHP/getHR.php", "POST", field, data);
+        String url = "http://" + rIP + "/androidAppPHP/getHR.php";
+        PutData putData = new PutData(url, "POST", field, data);
         if (putData.startPut()) {
             if (putData.onComplete()) {
                 String result = putData.getResult();
@@ -140,7 +143,8 @@ public class dashboard extends AppCompatActivity {
         String[] data = new String[1];
         data[0] = rPhone;
 
-        PutData putData = new PutData("http://192.168.2.7/androidAppPHP/getSPO2.php", "POST", field, data);
+        String url = "http://" + rIP + "/androidAppPHP/getSPO2.php";
+        PutData putData = new PutData(url, "POST", field, data);
         if (putData.startPut()) {
             if (putData.onComplete()) {
                 String result = putData.getResult();
@@ -160,8 +164,8 @@ public class dashboard extends AppCompatActivity {
         String[] data = new String[1];
         data[0] = rPhone;
 
-
-        PutData putData = new PutData("http://192.168.2.7/androidAppPHP/getAmbTemp.php", "POST", field, data);
+        String url = "http://" + rIP + "/androidAppPHP/getAmbTemp.php";
+        PutData putData = new PutData(url, "POST", field, data);
         if (putData.startPut()) {
             if (putData.onComplete()) {
                 String result = putData.getResult();
@@ -181,8 +185,8 @@ public class dashboard extends AppCompatActivity {
         String[] data = new String[1];
         data[0] = rPhone;
 
-
-        PutData putData = new PutData("http://192.168.2.7/androidAppPHP/getBodyTemp.php", "POST", field, data);
+        String url = "http://" + rIP + "/androidAppPHP/getBodyTemp.php";
+        PutData putData = new PutData(url, "POST", field, data);
         if (putData.startPut()) {
             if (putData.onComplete()) {
                 String result = putData.getResult();
@@ -202,8 +206,8 @@ public class dashboard extends AppCompatActivity {
         String[] data = new String[1];
         data[0] = rPhone;
 
-
-        PutData putData = new PutData("http://192.168.2.7/androidAppPHP/getHumidity.php", "POST", field, data);
+        String url = "http://" + rIP + "/androidAppPHP/getHumidity.php";
+        PutData putData = new PutData(url, "POST", field, data);
         if (putData.startPut()) {
             if (putData.onComplete()) {
                 String result = putData.getResult();

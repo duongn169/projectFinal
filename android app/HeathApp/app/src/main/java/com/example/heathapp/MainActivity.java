@@ -21,11 +21,12 @@ import com.vishnusivadas.advanced_httpurlconnection.PutData;
 import  java.sql.*;
 
 public class MainActivity extends AppCompatActivity {
-    EditText etPhoneNumber, etPassword;
+    EditText etPhoneNumber, etPassword, etIP;
     MaterialButton btnLogin, btnSignup;
 
     //Variable to share variable between file
     public static String globalPhoneNumber;
+    public static String globalIPAddress;
 
 
     @Override
@@ -35,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
 
         etPhoneNumber = (EditText) findViewById(R.id.phonenumber);
         etPassword = (EditText) findViewById(R.id.password);
+        etIP = (EditText) findViewById(R.id.ip);
 
         btnLogin = findViewById(R.id.loginbtn);
         btnSignup = findViewById(R.id.signupbtn);
@@ -55,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
                 phoneNumber = String.valueOf(etPhoneNumber.getText());
                 password = String.valueOf(etPassword.getText());
                 globalPhoneNumber = phoneNumber;
+                globalIPAddress = String.valueOf(etIP.getText());
 
                 if(!phoneNumber.equals("") && !password.equals("")){
                     //Start ProgressBar first (Set visibility VISIBLE)
@@ -71,7 +74,11 @@ public class MainActivity extends AppCompatActivity {
                             String[] data = new String[2];
                             data[0] = phoneNumber;
                             data[1] = password;
-                            PutData putData = new PutData("http://192.168.2.7/androidAppPHP/login.php", "POST", field, data);
+
+                            String ipAddress = String.valueOf(etIP.getText()); // Replace with your desired IP address
+                            String url = "http://" + ipAddress + "/androidAppPHP/login.php";
+                            PutData putData = new PutData(url, "POST", field, data);
+
                             if (putData.startPut()) {
                                 if (putData.onComplete()) {
                                     String result = putData.getResult();
