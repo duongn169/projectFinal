@@ -1,6 +1,5 @@
 import numpy as np
 import pandas as pd
-from flask import Flask, request, render_template
 import pickle
 import mysql.connector
 import sys
@@ -41,7 +40,7 @@ def getUserInfor():
     return res
 
 
-model = pickle.load(open('DATN/trained_modelBMI.pkl', 'rb'))
+model = pickle.load(open('trained_modelBMI.pkl', 'rb'))
 
 
 def predict():
@@ -70,8 +69,7 @@ def predict():
 
 userInfo = getUserInfor()
 
-print("2")
-inputValue = [userInfo[0], userInfo[1], userInfo[2]]
-print(inputValue)
+
+inputValue = [userInfo[0],userInfo[1],userInfo[2]]
 text = predict()
 print(text)

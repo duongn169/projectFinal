@@ -347,16 +347,7 @@ require 'dbconnectView.php';
 
 
                             </th>
-                            <!-- <td>
-                                <?php
-                                $user_id;
-                                $user_id = $_GET['id'];
-                                $command = 'python appBMI.py ' . escapeshellarg($user_id);
-                                $output = shell_exec($command);
-                                echo 2;
 
-                                ?>
-                            </td> -->
                             <td>Good</td>
 
                         </tr>

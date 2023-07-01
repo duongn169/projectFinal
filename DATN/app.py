@@ -77,12 +77,12 @@ def predict():
     return res_val
 
 
-bpm = getUserHealth()
-userInfo = getUserInfor()
-age = userInfo[0]
-gender = userInfo[1]
+# bpm = getUserHealth()
+# userInfo = getUserInfor()
+# age = userInfo[0]
+# gender = userInfo[1]
 
-inputValue = [age, gender, 0, 0, bpm, 0, 0, 0]
-text = predict()
-print(inputValue)
-print(text)
+# inputValue = [age, gender, 0, 0, bpm, 0, 0, 0]
+# text = predict()
+# print(inputValue)
+print("2")

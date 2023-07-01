@@ -36,6 +36,7 @@ public class profile extends AppCompatActivity implements NavigationView.OnNavig
     private DrawerLayout drawer;
 
     String rIP = MainActivity.globalIPAddress;
+    String rPhone = MainActivity.globalPhoneNumber;
 
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,7 +63,7 @@ public class profile extends AppCompatActivity implements NavigationView.OnNavig
         weight = (TextView) findViewById(R.id.weight);
         email = (TextView) findViewById(R.id.email);
         gender = (TextView) findViewById(R.id.gender);
-        status = (TextView) findViewById(R.id.status);
+
 
 
         handler = new Handler();
@@ -103,7 +104,7 @@ public class profile extends AppCompatActivity implements NavigationView.OnNavig
 
 
         String[] data = new String[1];
-        data[0] = "0367454081";
+        data[0] = rPhone;
 
 
         String url = "http://" + rIP + "/androidAppPHP/getUSerInfor/getName.php";
@@ -126,7 +127,7 @@ public class profile extends AppCompatActivity implements NavigationView.OnNavig
 
 
         String[] data = new String[1];
-        data[0] = "0367454081";
+        data[0] = rPhone;
 
 
         String url = "http://" + rIP + "/androidAppPHP/getUSerInfor/getPhone.php";
@@ -149,7 +150,7 @@ public class profile extends AppCompatActivity implements NavigationView.OnNavig
 
 
         String[] data = new String[1];
-        data[0] = "0367454081";
+        data[0] = rPhone;
 
 
         String url = "http://" + rIP + "/androidAppPHP/getUSerInfor/getAddress.php";
@@ -171,7 +172,7 @@ public class profile extends AppCompatActivity implements NavigationView.OnNavig
 
 
         String[] data = new String[1];
-        data[0] = "0367454081";
+        data[0] = rPhone;
 
 
         String url = "http://" + rIP + "/androidAppPHP/getUSerInfor/getAge.php";
@@ -194,7 +195,7 @@ public class profile extends AppCompatActivity implements NavigationView.OnNavig
 
 
         String[] data = new String[1];
-        data[0] = "0367454081";
+        data[0] = rPhone;
 
 
         String url = "http://" + rIP + "/androidAppPHP/getUSerInfor/getGender.php";
@@ -217,7 +218,7 @@ public class profile extends AppCompatActivity implements NavigationView.OnNavig
 
 
         String[] data = new String[1];
-        data[0] = "0367454081";
+        data[0] = rPhone;
 
 
         String url = "http://" + rIP + "/androidAppPHP/getUSerInfor/getHeight.php";
@@ -240,7 +241,7 @@ public class profile extends AppCompatActivity implements NavigationView.OnNavig
 
 
         String[] data = new String[1];
-        data[0] = "0367454081";
+        data[0] = rPhone;
 
 
         String url = "http://" + rIP + "/androidAppPHP/getUSerInfor/getWeight.php";
@@ -263,7 +264,7 @@ public class profile extends AppCompatActivity implements NavigationView.OnNavig
 
 
         String[] data = new String[1];
-        data[0] = "0367454081";
+        data[0] = rPhone;
 
 
         String url = "http://" + rIP + "/androidAppPHP/getUSerInfor/getEmail.php";
@@ -307,6 +308,8 @@ public class profile extends AppCompatActivity implements NavigationView.OnNavig
             Toast.makeText(this, "Edit User Info Clicked", Toast.LENGTH_SHORT).show();
         } else if (item.getItemId() == R.id.nav_logout) {
             // Handle Log Out action
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
             Toast.makeText(this, "Log Out Clicked", Toast.LENGTH_SHORT).show();
         }
         drawer.closeDrawer(GravityCompat.START);

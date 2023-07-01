@@ -61,7 +61,7 @@ public class dashboard extends AppCompatActivity implements NavigationView.OnNav
         toggle.syncState();
 
 
-        status = (TextView) findViewById(R.id.statusView);
+
         hr = (TextView) findViewById(R.id.heartRate);
         spo2 = (TextView) findViewById(R.id.spo2);
         bodyTemp = (TextView) findViewById(R.id.BodyTemp);
@@ -86,7 +86,7 @@ public class dashboard extends AppCompatActivity implements NavigationView.OnNav
             public void run() {
                 //updateStatus();
                 //check global phoneNum
-                status.setText(rPhone);
+
                 updateHR();
                 updateAmbTemp();
                 updateBodyTemp();
@@ -122,28 +122,7 @@ public class dashboard extends AppCompatActivity implements NavigationView.OnNav
         handler.removeCallbacks(statusUpdater);
     }
 
-    private void updateStatus() {
-        // Place your code here to update the status TextView
-        // For example, you can modify the existing code to update the status text
 
-        String[] field = new String[1];
-        field[0] = "phone_number";
-
-
-        String[] data = new String[1];
-        data[0] = "2";
-
-
-        String url = "http://" + rIP + "/androidAppPHP/getData.php";
-        PutData putData = new PutData(url, "POST", field, data);
-
-        if (putData.startPut()) {
-            if (putData.onComplete()) {
-                String result = putData.getResult();
-                status.setText(result);
-            }
-        }
-    }
 
     private void updateHR() {
         // Place your code here to update the status TextView
