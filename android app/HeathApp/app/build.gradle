@@ -33,10 +33,17 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.4.1'
     implementation 'com.google.android.material:material:1.5.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
+    //noinspection GradleCompatible
+    implementation 'com.android.support:design:26.1.0'
+    //noinspection GradleCompatible
+    implementation 'com.android.support:support-compat:26.1.0'
     implementation files('C:/Users/admin/AndroidStudioProjects/HeathApp/app/libs/jtds-1.3.1.jar')
     implementation files('C:\\Users\\admin\\AndroidStudioProjects\\HeathApp\\app\\libs\\mysql-connector.jar')
     implementation 'com.github.VishnuSivadasVS:Advanced-HttpURLConnection:1.2'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+
+
 }
+

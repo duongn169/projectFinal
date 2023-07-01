@@ -1,51 +1,46 @@
 package com.example.heathapp;
 
+import static com.example.heathapp.R.layout.user_information;
+
+import android.annotation.SuppressLint;
+import android.content.Intent;
+import android.os.Bundle;
+import android.os.Handler;
+import android.view.LayoutInflater;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
 
-import android.annotation.SuppressLint;
-import android.app.Dialog;
-import android.content.Context;
-import android.content.Intent;
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
-import android.widget.Toast;
-
-import com.google.android.material.button.MaterialButton;
 import com.google.android.material.navigation.NavigationView;
 import com.vishnusivadas.advanced_httpurlconnection.PutData;
 
-import javax.net.ssl.HandshakeCompletedListener;
 
-public class dashboard extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class profile extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+
     private Handler handler;
     private Runnable statusUpdater;
-    TextView status, hr, spo2, bodyTemp, ambTemp, humidity;
 
-
-    final Context context = this;
-    MaterialButton btnLogout;
-    String rPhone = MainActivity.globalPhoneNumber;
-    String rIP = MainActivity.globalIPAddress;
-
+    TextView phoneNumber, name, age, gender, address, height, weight, email, status;
 
     private DrawerLayout drawer;
 
+    String rIP = MainActivity.globalIPAddress;
 
-    @Override
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dashboard);
-
+        setContentView(R.layout.user_information);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -53,66 +48,42 @@ public class dashboard extends AppCompatActivity implements NavigationView.OnNav
         drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.navigationView);
         navigationView.setNavigationItemSelectedListener((NavigationView.OnNavigationItemSelectedListener) this);
-
-
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
 
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
 
-        status = (TextView) findViewById(R.id.statusView);
-        hr = (TextView) findViewById(R.id.heartRate);
-        spo2 = (TextView) findViewById(R.id.spo2);
-        bodyTemp = (TextView) findViewById(R.id.BodyTemp);
-        ambTemp = (TextView) findViewById(R.id.AmbTemp);
-        humidity = (TextView) findViewById(R.id.humidity);
-
-        btnLogout = findViewById(R.id.btnLogout);
-
-        btnLogout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
+        phoneNumber = (TextView)findViewById(R.id.phonenumber);
+        name = (TextView) findViewById(R.id.fullName);
+        age = (TextView)  findViewById(R.id.age);
+        address = (TextView) findViewById(R.id.address);
+        height = (TextView) findViewById(R.id.height);
+        weight = (TextView) findViewById(R.id.weight);
+        email = (TextView) findViewById(R.id.email);
+        gender = (TextView) findViewById(R.id.gender);
+        status = (TextView) findViewById(R.id.status);
 
 
         handler = new Handler();
         statusUpdater = new Runnable() {
             @Override
             public void run() {
-                //updateStatus();
-                //check global phoneNum
-                status.setText(rPhone);
-                updateHR();
-                updateAmbTemp();
-                updateBodyTemp();
-                updateHumidity();
-                updateSPO2();
+                updateName();
+                updateAddress();
+                updateAge();
+                updateEmail();
+                updateGender();
+                updateHeight();
+                updatePhone();
+                updateWeight();
                 handler.postDelayed(this, 100);
             }
         };
+
         // Start updating the status TextView
         startStatusUpdate();
-
     }
-
-    public void openDrawer(View view) {
-        drawer.openDrawer(GravityCompat.START);
-    }
-
-    @Override
-    public void onBackPressed() {
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
-        }
-    }
-
 
     private void startStatusUpdate() {
         handler.post(statusUpdater);
@@ -122,7 +93,8 @@ public class dashboard extends AppCompatActivity implements NavigationView.OnNav
         handler.removeCallbacks(statusUpdater);
     }
 
-    private void updateStatus() {
+
+    private void updateName() {
         // Place your code here to update the status TextView
         // For example, you can modify the existing code to update the status text
 
@@ -131,21 +103,21 @@ public class dashboard extends AppCompatActivity implements NavigationView.OnNav
 
 
         String[] data = new String[1];
-        data[0] = "2";
+        data[0] = "0367454081";
 
 
-        String url = "http://" + rIP + "/androidAppPHP/getData.php";
+        String url = "http://" + rIP + "/androidAppPHP/getUSerInfor/getName.php";
         PutData putData = new PutData(url, "POST", field, data);
-
         if (putData.startPut()) {
             if (putData.onComplete()) {
                 String result = putData.getResult();
-                status.setText(result);
+                name.setText(result);
+
             }
         }
     }
 
-    private void updateHR() {
+    private void updatePhone() {
         // Place your code here to update the status TextView
         // For example, you can modify the existing code to update the status text
 
@@ -154,21 +126,21 @@ public class dashboard extends AppCompatActivity implements NavigationView.OnNav
 
 
         String[] data = new String[1];
-        data[0] = rPhone;
+        data[0] = "0367454081";
 
 
-        String url = "http://" + rIP + "/androidAppPHP/getHR.php";
+        String url = "http://" + rIP + "/androidAppPHP/getUSerInfor/getPhone.php";
         PutData putData = new PutData(url, "POST", field, data);
         if (putData.startPut()) {
             if (putData.onComplete()) {
                 String result = putData.getResult();
-                hr.setText(result);
+                phoneNumber.setText(result);
 
             }
         }
     }
 
-    private void updateSPO2() {
+    private void updateAddress() {
         // Place your code here to update the status TextView
         // For example, you can modify the existing code to update the status text
 
@@ -177,19 +149,20 @@ public class dashboard extends AppCompatActivity implements NavigationView.OnNav
 
 
         String[] data = new String[1];
-        data[0] = rPhone;
+        data[0] = "0367454081";
 
-        String url = "http://" + rIP + "/androidAppPHP/getSPO2.php";
+
+        String url = "http://" + rIP + "/androidAppPHP/getUSerInfor/getAddress.php";
         PutData putData = new PutData(url, "POST", field, data);
         if (putData.startPut()) {
             if (putData.onComplete()) {
                 String result = putData.getResult();
-                spo2.setText(result);
+                address.setText(result);
+
             }
         }
     }
-
-    private void updateAmbTemp() {
+    private void updateAge() {
         // Place your code here to update the status TextView
         // For example, you can modify the existing code to update the status text
 
@@ -198,19 +171,21 @@ public class dashboard extends AppCompatActivity implements NavigationView.OnNav
 
 
         String[] data = new String[1];
-        data[0] = rPhone;
+        data[0] = "0367454081";
 
-        String url = "http://" + rIP + "/androidAppPHP/getAmbTemp.php";
+
+        String url = "http://" + rIP + "/androidAppPHP/getUSerInfor/getAge.php";
         PutData putData = new PutData(url, "POST", field, data);
         if (putData.startPut()) {
             if (putData.onComplete()) {
                 String result = putData.getResult();
-                ambTemp.setText(result);
+                age.setText(result);
+
             }
         }
     }
 
-    private void updateBodyTemp() {
+    private void updateGender() {
         // Place your code here to update the status TextView
         // For example, you can modify the existing code to update the status text
 
@@ -219,19 +194,21 @@ public class dashboard extends AppCompatActivity implements NavigationView.OnNav
 
 
         String[] data = new String[1];
-        data[0] = rPhone;
+        data[0] = "0367454081";
 
-        String url = "http://" + rIP + "/androidAppPHP/getBodyTemp.php";
+
+        String url = "http://" + rIP + "/androidAppPHP/getUSerInfor/getGender.php";
         PutData putData = new PutData(url, "POST", field, data);
         if (putData.startPut()) {
             if (putData.onComplete()) {
                 String result = putData.getResult();
-                bodyTemp.setText(result);
+                gender.setText(result);
+
             }
         }
     }
 
-    private void updateHumidity() {
+    private void updateHeight() {
         // Place your code here to update the status TextView
         // For example, you can modify the existing code to update the status text
 
@@ -240,25 +217,75 @@ public class dashboard extends AppCompatActivity implements NavigationView.OnNav
 
 
         String[] data = new String[1];
-        data[0] = rPhone;
+        data[0] = "0367454081";
 
-        String url = "http://" + rIP + "/androidAppPHP/getHumidity.php";
+
+        String url = "http://" + rIP + "/androidAppPHP/getUSerInfor/getHeight.php";
         PutData putData = new PutData(url, "POST", field, data);
         if (putData.startPut()) {
             if (putData.onComplete()) {
                 String result = putData.getResult();
-                humidity.setText(result);
+                height.setText(result);
+
             }
         }
     }
+
+    private void updateWeight() {
+        // Place your code here to update the status TextView
+        // For example, you can modify the existing code to update the status text
+
+        String[] field = new String[1];
+        field[0] = "phone_number";
+
+
+        String[] data = new String[1];
+        data[0] = "0367454081";
+
+
+        String url = "http://" + rIP + "/androidAppPHP/getUSerInfor/getWeight.php";
+        PutData putData = new PutData(url, "POST", field, data);
+        if (putData.startPut()) {
+            if (putData.onComplete()) {
+                String result = putData.getResult();
+                weight.setText(result);
+
+            }
+        }
+    }
+
+    private void updateEmail() {
+        // Place your code here to update the status TextView
+        // For example, you can modify the existing code to update the status text
+
+        String[] field = new String[1];
+        field[0] = "phone_number";
+
+
+        String[] data = new String[1];
+        data[0] = "0367454081";
+
+
+        String url = "http://" + rIP + "/androidAppPHP/getUSerInfor/getEmail.php";
+        PutData putData = new PutData(url, "POST", field, data);
+        if (putData.startPut()) {
+            if (putData.onComplete()) {
+                String result = putData.getResult();
+                email.setText(result);
+
+            }
+        }
+    }
+
 
     @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        // Stop updating the status TextView when the activity is destroyed
-        stopStatusUpdate();
+    public void onBackPressed() {
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
+        }
     }
-
 
     @SuppressLint("NonConstantResourceId")
     @Override
@@ -280,8 +307,6 @@ public class dashboard extends AppCompatActivity implements NavigationView.OnNav
             Toast.makeText(this, "Edit User Info Clicked", Toast.LENGTH_SHORT).show();
         } else if (item.getItemId() == R.id.nav_logout) {
             // Handle Log Out action
-            Intent intent = new Intent(this, MainActivity.class);
-            startActivity(intent);
             Toast.makeText(this, "Log Out Clicked", Toast.LENGTH_SHORT).show();
         }
         drawer.closeDrawer(GravityCompat.START);
