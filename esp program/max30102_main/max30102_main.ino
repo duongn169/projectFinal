@@ -51,7 +51,7 @@ char ssid[50] ;
 char pass[50] ;
 char userID[5];
 
-char* host = "192.168.1.214";
+char* host = "192.168.203.44";
 WiFiClient wifiClient;
 /*----------------------------wifi param--------------------------------*/
 
@@ -145,7 +145,7 @@ void sendDataToDB() {
 
 
   // This will send the request to the server
-  wifiClient.print(String("GET http://192.168.1.214/index1.php?") +
+  wifiClient.print(String("GET http://192.168.203.44/index1.php?") +
                    ("&bpm=") + updatedBPM +
                    ("&spo2=") + updatedSPO2 +
                    ("&userId=") + userID +
