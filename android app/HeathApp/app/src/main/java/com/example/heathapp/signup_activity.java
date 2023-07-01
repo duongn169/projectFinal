@@ -15,7 +15,7 @@ import com.google.android.material.button.MaterialButton;
 import com.vishnusivadas.advanced_httpurlconnection.PutData;
 
 public class signup_activity extends AppCompatActivity {
-    EditText etPhoneNumber, etFullName, etPassword,etConfirmPassword, etGender, etAge, etAddress;
+    EditText etPhoneNumber, etFullName, etPassword,etConfirmPassword, etGender, etAge, etAddress, etHeight, etWeight, etEmail;
     MaterialButton btnSignup, backToLogin;
 
     String rIP = MainActivity.globalIPAddress;
@@ -31,6 +31,9 @@ public class signup_activity extends AppCompatActivity {
         etGender = (EditText) findViewById(R.id.gender);
         etAge = (EditText) findViewById(R.id.age);
         etAddress = (EditText) findViewById(R.id.address);
+        etHeight = (EditText) findViewById(R.id.height);
+        etWeight = (EditText) findViewById(R.id.weight);
+        etEmail = (EditText) findViewById(R.id.email);
 
         btnSignup = findViewById(R.id.signupbtn);
         backToLogin = findViewById(R.id.backToLogin);
@@ -47,7 +50,7 @@ public class signup_activity extends AppCompatActivity {
         btnSignup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String phoneNumber, fullName, gender, age, address, password, confirmPassword;
+                String phoneNumber, fullName, gender, age, address, password, confirmPassword, height, weight, email;
 
                 phoneNumber = String.valueOf(etPhoneNumber.getText());
                 fullName = String.valueOf(etFullName.getText());
@@ -56,8 +59,11 @@ public class signup_activity extends AppCompatActivity {
                 address = String.valueOf(etAddress.getText());
                 password = String.valueOf(etPassword.getText());
                 confirmPassword = String.valueOf(etConfirmPassword.getText());
+                height = String.valueOf(etHeight.getText());
+                weight = String.valueOf(etWeight.getText());
+                email = String.valueOf(etEmail.getText());
 
-                if(!phoneNumber.equals("") && !password.equals("") && !fullName.equals("") && !gender.equals("") && !age.equals("") && !address.equals("")&& !confirmPassword.equals("")){
+                if(!phoneNumber.equals("") && !password.equals("") && !fullName.equals("") && !gender.equals("") && !age.equals("") && !address.equals("")&& !confirmPassword.equals("") && !height.equals("") && !weight.equals("") && !email.equals("")){
                     //Start ProgressBar first (Set visibility VISIBLE)
                     if(!password.equals(confirmPassword)){
                         Toast.makeText(getApplicationContext(), "Password not matched", Toast.LENGTH_SHORT).show();
@@ -69,21 +75,27 @@ public class signup_activity extends AppCompatActivity {
                             public void run() {
                                 //Starting Write and Read data with URL
                                 //Creating array for parameters
-                                String[] field = new String[6];
+                                String[] field = new String[9];
                                 field[0] = "phone_number";
                                 field[1] = "fullname";
                                 field[2] = "address";
                                 field[3] = "password";
                                 field[4] = "age";
                                 field[5] = "gender";
+                                field[6] = "height";
+                                field[7] = "weight";
+                                field[8] = "email";
                                 //Creating array for data
-                                String[] data = new String[6];
+                                String[] data = new String[9];
                                 data[0] = phoneNumber;
                                 data[1] = fullName;
                                 data[2] = address;
                                 data[3] = password;
                                 data[4] = age;
                                 data[5] = gender;
+                                data[6] = height;
+                                data[7] = weight;
+                                data[8] = email;
 
                                 String url = "http://" + rIP + "/androidAppPHP/signup.php";
                                 PutData putData = new PutData(url, "POST", field, data);
