@@ -14,7 +14,7 @@ public class mysqlTesting {
 
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            String url1 = "jdbc:mysql://192.168.1.214/doctorapp";
+            String url1 = "jdbc:mysql://192.168.203.44/doctorapp";
             String user = "pi";
             String password = "27122001";
 

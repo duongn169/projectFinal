@@ -329,25 +329,34 @@ require 'dbconnectView.php';
                     <thead>
                         <tr>
                             <th scope="col">General Report</th>
-                            <th scope="col">Blood</th>
+                            <th scope="col">BMI</th>
                             <th scope="col">Health Care</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <th scope="row">
-                                <?php 
+                                <?php
                                 $user_id;
                                 $user_id = $_GET['id'];
-                                $command = 'python app.py '. escapeshellarg($user_id);
+                                $command = 'python appBMI.py ' . escapeshellarg($user_id);
                                 $output = shell_exec($command);
                                 echo $output;
-                            
+
                                 ?>
 
 
                             </th>
-                            <td>60</td>
+                            <!-- <td>
+                                <?php
+                                $user_id;
+                                $user_id = $_GET['id'];
+                                $command = 'python appBMI.py ' . escapeshellarg($user_id);
+                                $output = shell_exec($command);
+                                echo 2;
+
+                                ?>
+                            </td> -->
                             <td>Good</td>
 
                         </tr>
@@ -370,7 +379,7 @@ require 'dbconnectView.php';
 
 <!-- profile23:03-->
 
-<?php 
+<?php
 
 $user_id;
 $user_id = $_GET['id'];
