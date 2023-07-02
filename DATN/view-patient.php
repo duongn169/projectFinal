@@ -311,9 +311,10 @@ require 'dbconnectView.php';
                         <tr>
 
                             <td>60</td>
-                            +                            <!-- data for bmi -->
+                            +
+                            <!-- data for bmi -->
                             <td>
-                            <?php
+                                <?php
                                 $server1 = "192.168.1.214";
                                 $user1 = "pi";
                                 $pass1 = "27122001";
@@ -359,47 +360,30 @@ require 'dbconnectView.php';
                                 mysqli_close($conn1);
                                 ?>
 
-                                
+
                             </td>
-                            <td>
-                                <?php 
-                                    $server1 = "192.168.1.214";
-                                    $user1 = "pi";
-                                    $pass1 = "27122001";
-                                    $dbname1 = "healthData";
-                                    
-                                    $conn1 = mysqli_connect($server1, $user1, $pass1, $dbname1);
-                                    
-                                    // Check connection
-                                    if ($conn1 === false) {
-                                        die("ERROR: Could not connect. " . mysqli_connect_error());
+                            <td><span id="temperature"></span>
+                                <script>
+                                    // Function to update the body temperature
+                                    function updateBodyTemperature() {
+                                        // Perform an AJAX request to retrieve the updated body temperature from the server
+                                        var xhr = new XMLHttpRequest();
+                                        xhr.open('GET', 'getTemp.php', true);
+                                        xhr.onreadystatechange = function() {
+                                            if (xhr.readyState === 4 && xhr.status === 200) {
+                                                // Update the body temperature in the HTML
+                                                document.getElementById('temperature').textContent = xhr.responseText;
+                                            }
+                                        };
+                                        xhr.send();
                                     }
 
+                                    // Call the updateBodyTemperature function every 1 second
+                                    setInterval(updateBodyTemperature, 1000);
+                                </script>
 
-                                    $query1 = "SELECT bodyTemp FROM IOT_project WHERE user_id='$user_id' ORDER BY id DESC LIMIT 1";
-                                    $query_run1 = mysqli_query($conn1, $query1);
 
-                                    if ($query_run1) {
-                                        // Check if any rows were returned
-                                        if (mysqli_num_rows($query_run1) > 0) {
-                                            // Fetch the body temperature from the first row
-                                            $row = mysqli_fetch_assoc($query_run1);
-                                            $bodyTemp = $row['bodyTemp'];
-                                    
-                                            // Output the retrieved body temperature
-                                            echo $bodyTemp;
-                                        } else {
-                                            echo "No data found for user ID: " . $user_id;
-                                        }
-                                    } else {
-                                        echo "Error in the query: " . mysqli_error($conn1);
-                                    }
-                                    
-                                    // Close the database connection
-                                    mysqli_close($conn1);
-                                ?>
-                                        
-                            </td>                
+                            </td>
 
 
                         </tr>

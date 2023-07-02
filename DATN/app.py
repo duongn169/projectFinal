@@ -69,20 +69,25 @@ def predict():
     df = pd.DataFrame(features_value, columns=features_name)
     output = model.predict(df)
 
-    if output == 1:
-        res_val = "** heart disease **"
+    if inputValue[4] > 160 and  output == 1:
+        res_val = "** Heart is HIGH you should go to hospital **"
+    elif inputValue[4] > 160 and  output == 0:
+        res_val = "** Heart is HIGH you should relax **"
+    elif inputValue[4] < 60 and  output == 1:
+        res_val = "** Heart is LOW you you should go to hospital **" 
+    elif inputValue[4] < 60 and  output == 0:
+        res_val = "** Heart is LOW you should relax **"
     else:
         res_val = "no heart disease "
 
     return res_val
 
 
-# bpm = getUserHealth()
-# userInfo = getUserInfor()
-# age = userInfo[0]
-# gender = userInfo[1]
+bpm = getUserHealth()
+userInfo = getUserInfor()
+age = userInfo[0]
+gender = userInfo[1]
 
-# inputValue = [age, gender, 0, 0, bpm, 0, 0, 0]
-# text = predict()
-# print(inputValue)
-print("2")
+inputValue = [age, gender, 0, 0, bpm, 0, 0, 0]
+text = predict()
+print(inputValue)
