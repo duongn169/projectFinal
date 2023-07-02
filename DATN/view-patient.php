@@ -369,23 +369,16 @@ require 'dbconnectView.php';
                                 mysqli_close($conn1);
                                 ?>
                                 <?php
-                                    $user_id = $_GET['id'];; // The variable you want to send to Python
+                                $user_id = $_GET['id'];; // The variable you want to send to Python
 
-                                    $pythonScript = 'appBMI.py';
-                                    $command = 'python ' . $pythonScript . ' ' . $user_id;
+                                $pythonScript = 'appBMI.py';
+                                $command = 'python ' . $pythonScript . ' ' . $user_id;
 
-                                    $output = shell_exec($command);
+                                $output = shell_exec($command);
 
-                                    echo $output;
+                                echo $output;
                                 ?>
 
-                                <?php
-                                 $user_id;
-                                 $user_id = $_GET['id'];
-                                 $command = 'python appBMI.py ' . escapeshellarg($user_id);
-                                 $output = shell_exec($command);
-                                 echo $output;
-                                ?>
 
 
                             </td>
@@ -398,8 +391,32 @@ require 'dbconnectView.php';
                                     xhr.open('GET', 'getTemp.php', true);
                                     xhr.onreadystatechange = function() {
                                         if (xhr.readyState === 4 && xhr.status === 200) {
+                                            var response = xhr.responseText;
                                             // Update the body temperature in the HTML
-                                            document.getElementById('temperature').textContent = xhr.responseText;
+                                            document.getElementById('temperature').textContent = response;
+                                            // Add your code to handle the body temperature value
+                                            if (parseInt(response) < 60) {
+                                                var alertMessage =
+                                                    'Low Heartbeat Alert! Your Heartbeat is lower than 60.';
+                                                var alertTimeout = 3000; // 3 seconds in milliseconds
+                                                var alertWindow = alert(alertMessage);
+
+                                                // Close the alert after 3 seconds
+                                                setTimeout(function() {
+                                                    alertWindow.close();
+                                                }, alertTimeout);
+                                            }
+                                            if (parseInt(response) > 110) {
+                                                var alertMessage =
+                                                    'High Heartbeat Alert! Your Heartbeat is higher than 110.';
+                                                var alertTimeout = 3000; // 3 seconds in milliseconds
+                                                var alertWindow = alert(alertMessage);
+
+                                                // Close the alert after 3 seconds
+                                                setTimeout(function() {
+                                                    alertWindow.close();
+                                                }, alertTimeout);
+                                            }
                                         }
                                     };
                                     xhr.send();
@@ -410,19 +427,21 @@ require 'dbconnectView.php';
                                 </script>
 
 
+
+
                             </td>
-                            <td> 
+                            <td>
                                 <?php
-                                    $user_id = $_GET['id'];; // The variable you want to send to Python
+                                $user_id = $_GET['id'];; // The variable you want to send to Python
 
-                                    $pythonScript = 'appFallDetection.py';
-                                    $command = 'python ' . $pythonScript . ' ' . $user_id;
+                                $pythonScript = 'appFallDetection.py';
+                                $command = 'python ' . $pythonScript . ' ' . $user_id;
 
-                                    $output = shell_exec($command);
+                                $output = shell_exec($command);
 
-                                    echo $output;
+                                echo $output;
                                 ?>
-                                </td>
+                            </td>
 
                         </tr>
                 </table>

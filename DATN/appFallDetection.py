@@ -27,11 +27,11 @@ def getUserHealth():
     myresult = mycursor.fetchone()
 
     res = [0, 0, 0]  # );HRV, 1: SpO2, 2: Accelerometer
-    res[0] = int(myresult[3])
-    res[1] = int(myresult[4])
+    res[0] = 95
+    res[1] = 95
     
 
-    if (myresult[7] > 4 and myresult[8] > 4 and myresult[9] > 4):
+    if (myresult[7] > 4 or myresult[8] > 4 or myresult[9] > 4):
         res[2] = 1
     else:
         res[2] = 0
@@ -53,15 +53,12 @@ def predict():
     if output == 0:
         res_val = 'No Fall detected'
     elif output == 1:
-        res_val = 'Slip detected'
-    elif output == 2:
         res_val = 'Definite fall'
     return res_val
 
 
-    userInfo = getUserHealth()
-
-
-    inputValue = [userInfo[0],userInfo[1],userInfo[2]]
-    text = predict()
-    print(text)
+userInfo = getUserHealth()
+inputValue = [userInfo[0],userInfo[1],userInfo[2]]
+text = predict()
+print(inputValue)
+print(text)

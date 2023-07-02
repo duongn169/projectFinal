@@ -13,7 +13,7 @@ if ($query_run1) {
     if (mysqli_num_rows($query_run1) > 0) {
         // Fetch the body temperature from the first row
         $row = mysqli_fetch_assoc($query_run1);
-        $bodyTemp = $row['bodyTemp'];
+        $bodyTemp =  rand(53, 120); //$row['bodyTemp'];
 
         // Output the retrieved body temperature
         echo $bodyTemp;
