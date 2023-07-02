@@ -16,7 +16,7 @@ bpm = 0
 
 def getUserInfor():
     mydb = mysql.connector.connect(
-        host="192.168.203.44",
+        host="192.168.1.214",
         user="pi",
         password="27122001",
         database="doctorapp"
@@ -41,7 +41,7 @@ def getUserInfor():
 
 def getUserHealth():
     mydb = mysql.connector.connect(
-        host="192.168.203.44",
+        host="192.168.1.214",
         user="pi",
         password="27122001",
         database="healthData"

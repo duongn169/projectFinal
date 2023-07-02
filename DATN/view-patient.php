@@ -23,7 +23,27 @@ require 'dbconnectView.php';
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+    i.fa.fa-thermometer-half.temp {
+        font-size: 40px;
+        color: green;
 
+    }
+
+    i.fa.fa-solid.fa-weight-scale.bmi {
+        font-size: 40px;
+        color: blue;
+
+    }
+
+    i.fa.fa-heartbeat.heart {
+        font-size: 40px;
+        color: red;
+    }
+    </style>
 
 </head>
 
@@ -264,12 +284,7 @@ require 'dbconnectView.php';
                                                         <?= $user['address']; ?>
                                                     </p>
                                                 </li>
-                                                <li>
-                                                    <span class="title">Gender:</span>
-                                                    <p class="form-control">
-                                                        <?= $user['gender']; ?>
-                                                    </p>
-                                                </li>
+
                                             </ul>
                                         </div>
                                         <?php
@@ -285,7 +300,25 @@ require 'dbconnectView.php';
                         </div>
                     </div>
                 </div>
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col"><i class='fa fa-heartbeat heart'></i> Heartbeat</th>
+                            <th scope="col"><i class='fa fa-solid fa-weight-scale bmi'></i>BMI</th>
+                            <th scope="col"><i class="fa fa-thermometer-half temp" aria-hidden="true"></i>Temperature
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
 
+                            <td>60</td>
+                            <td>60</td>
+                            <td>60</td>
+
+
+                        </tr>
+                </table>
                 <div class="profile-tabs">
                     <ul class="nav nav-tabs nav-tabs-bottom">
                         <li class="nav-item"><a class="nav-link active">Chart</a> </li>
@@ -325,33 +358,7 @@ require 'dbconnectView.php';
                     </div>
                 </div>
 
-                <table class="table table-hover">
-                    <thead>
-                        <tr>
-                            <th scope="col">General Report</th>
-                            <th scope="col">BMI</th>
-                            <th scope="col">Health Care</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row">
-                                <?php
-                                $user_id;
-                                $user_id = $_GET['id'];
-                                $command = 'python appBMI.py ' . escapeshellarg($user_id);
-                                $output = shell_exec($command);
-                                echo $output;
 
-                                ?>
-
-
-                            </th>
-
-                            <td>Good</td>
-
-                        </tr>
-                </table>
             </div>
             <div class="sidebar-overlay" data-reff=""></div>
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
