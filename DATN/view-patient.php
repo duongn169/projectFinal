@@ -311,9 +311,6 @@ require 'dbconnectView.php';
                         <tr>
 
                             <td>60</td>
-                            <td>60</td>
-                            <td>60</td>
-                            <td>Definite fall</td>
 
 
 
