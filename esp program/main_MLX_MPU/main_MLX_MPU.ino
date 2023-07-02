@@ -20,7 +20,7 @@ char ssid[50] ;
 char pass[50] ;
 char userID[5];
 
-char* host = "192.168.203.44";
+char* host = "192.168.1.214";
 WiFiClient wifiClient;
 /*----------------------------wifi param--------------------------------*/
 
