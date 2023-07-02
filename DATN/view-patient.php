@@ -394,7 +394,18 @@ require 'dbconnectView.php';
 
 
                             </td>
+                            <td> 
+                                <?php
+                                    $user_id = $_GET['id'];; // The variable you want to send to Python
 
+                                    $pythonScript = 'appFallDetection.py';
+                                    $command = 'python ' . $pythonScript . ' ' . $user_id;
+
+                                    $output = shell_exec($command);
+
+                                    echo $output;
+                                ?>
+                                </td>
 
                         </tr>
                 </table>
