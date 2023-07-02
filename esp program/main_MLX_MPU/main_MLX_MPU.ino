@@ -18,7 +18,7 @@ float maxRotX=0, maxRotY=0, maxRotZ=0;
 // Insert your network credentials
 char ssid[50] = "PHONG TRO 36/4 -1";
 char pass[50] = "0934085190";
-char userID[5] = "49";
+char userID[5] = "46";
 
 char* host = "192.168.1.214";
 WiFiClient wifiClient;
