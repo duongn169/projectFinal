@@ -16,9 +16,9 @@ float maxRotX=0, maxRotY=0, maxRotZ=0;
 
 /*----------------------------wifi param--------------------------------*/
 // Insert your network credentials
-char ssid[50] ;
-char pass[50] ;
-char userID[5];
+char ssid[50] = "PHONG TRO 36/4 -1";
+char pass[50] = "0934085190";
+char userID[5] = "49";
 
 char* host = "192.168.1.214";
 WiFiClient wifiClient;
@@ -193,6 +193,9 @@ void sendDataToDB(float bodyTemp){
         // This will send the request to the server
         wifiClient.print(String("GET http://192.168.2.214/receiveArmBand.php?") + 
                               ("&bodyTemp=") + bodyTemp + 
+                              ("&rotX=") + maxRotX + 
+                              ("&rotY=") + maxRotY + 
+                              ("&rotZ=") + maxRotZ + 
                               ("&userId=") + userID + 
                               " HTTP/1.1\r\n" +
                      "Host: " + host + "\r\n" +
@@ -282,8 +285,10 @@ void setup() {
   while (!Serial);
   delay(1000);
 
-  verifyWifiConnection();
-  getUserID();
+  //  verifyWifiConnection();
+  //  getUserID();
+  connect_wifi();
+
   
   MPU_Setup();
   MLX_Setup();
