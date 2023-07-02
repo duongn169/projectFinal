@@ -23,31 +23,29 @@ require 'dbconnectView.php';
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
-    i.fa.fa-thermometer-half.temp {
-        font-size: 40px;
-        color: green;
+        i.fa.fa-thermometer-half.temp {
+            font-size: 40px;
+            color: green;
 
-    }
+        }
 
-    i.fa.fa-solid.fa-weight-scale.bmi {
-        font-size: 40px;
-        color: blue;
+        i.fa.fa-solid.fa-weight-scale.bmi {
+            font-size: 40px;
+            color: blue;
 
-    }
+        }
 
-    i.fa.fa-heartbeat.heart {
-        font-size: 40px;
-        color: red;
-    }
+        i.fa.fa-heartbeat.heart {
+            font-size: 40px;
+            color: red;
+        }
 
-    i.fas.fa-walking.walk {
-        font-size: 40px;
+        i.fas.fa-walking.walk {
+            font-size: 40px;
 
-    }
+        }
     </style>
 
 </head>
@@ -108,9 +106,7 @@ require 'dbconnectView.php';
                                             <span class="avatar">L</span>
                                             <div class="media-body">
                                                 <p class="noti-details"><span class="noti-title">Misty Tison</span>
-                                                    added <span class="noti-title">Domenic Houston</span> and <span
-                                                        class="noti-title">Claire Mapes</span> to project <span
-                                                        class="noti-title">Doctor available module</span></p>
+                                                    added <span class="noti-title">Domenic Houston</span> and <span class="noti-title">Claire Mapes</span> to project <span class="noti-title">Doctor available module</span></p>
                                                 <p class="noti-time"><span class="notification-time">8 mins ago</span>
                                                 </p>
                                             </div>
@@ -153,14 +149,11 @@ require 'dbconnectView.php';
                     </div>
                 </li>
                 <li class="nav-item dropdown d-none d-sm-block">
-                    <a href="javascript:void(0);" id="open_msg_box" class="hasnotifications nav-link"><i
-                            class="fa fa-comment-o"></i> <span
-                            class="badge badge-pill bg-danger float-right">8</span></a>
+                    <a href="javascript:void(0);" id="open_msg_box" class="hasnotifications nav-link"><i class="fa fa-comment-o"></i> <span class="badge badge-pill bg-danger float-right">8</span></a>
                 </li>
                 <li class="nav-item dropdown has-arrow">
                     <a href="#" class="dropdown-toggle nav-link user-link" data-toggle="dropdown">
-                        <span class="user-img"><img class="rounded-circle" src="assets/img/user.jpg" width="40"
-                                alt="Admin">
+                        <span class="user-img"><img class="rounded-circle" src="assets/img/user.jpg" width="40" alt="Admin">
                             <span class="status online"></span></span>
                         <span>Admin</span>
                     </a>
@@ -171,8 +164,7 @@ require 'dbconnectView.php';
                 </li>
             </ul>
             <div class="dropdown mobile-user-menu float-right">
-                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i
-                        class="fa fa-ellipsis-v"></i></a>
+                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
                 <div class="dropdown-menu dropdown-menu-right">
 
                     <a class="dropdown-item" href="login.php">Logout</a>
@@ -193,8 +185,7 @@ require 'dbconnectView.php';
                         </li>
 
                         <li class="submenu">
-                            <a href="#"><i class="fa fa-columns"></i> <span>Account</span> <span
-                                    class="menu-arrow"></span></a>
+                            <a href="#"><i class="fa fa-columns"></i> <span>Account</span> <span class="menu-arrow"></span></a>
                             <ul style="display: none;">
                                 <li><a href="login.php"> Login </a></li>
                                 <li><a href="register.php"> Register </a></li>
@@ -239,59 +230,59 @@ require 'dbconnectView.php';
                                                 $user = mysqli_fetch_array($query_run);
 
                                         ?>
-                                        <div class="col-md-5">
-                                            <div class="profile-info-left">
-                                                <h3 class="user-name m-t-0 mb-0">
-                                                    <b>
-                                                        <p class="form-control">
-                                                            <?= $user['name']; ?>
-                                                        </p>
-                                                    </b>
-                                                </h3>
+                                                <div class="col-md-5">
+                                                    <div class="profile-info-left">
+                                                        <h3 class="user-name m-t-0 mb-0">
+                                                            <b>
+                                                                <p class="form-control">
+                                                                    <?= $user['name']; ?>
+                                                                </p>
+                                                            </b>
+                                                        </h3>
 
-                                                <h3 class="user-name m-t-0 mb-0">
-                                                    <b>
-                                                        <p class="form-control">
-                                                            <?= $user['age']; ?>
-                                                        </p>
-                                                    </b>
-                                                </h3>
-                                                <h3 class="user-name m-t-0 mb-0">
-                                                    <b>
-                                                        <p class="form-control">
-                                                            <?= $user['gender']; ?>
-                                                        </p>
-                                                    </b>
-                                                </h3>
+                                                        <h3 class="user-name m-t-0 mb-0">
+                                                            <b>
+                                                                <p class="form-control">
+                                                                    <?= $user['age']; ?>
+                                                                </p>
+                                                            </b>
+                                                        </h3>
+                                                        <h3 class="user-name m-t-0 mb-0">
+                                                            <b>
+                                                                <p class="form-control">
+                                                                    <?= $user['gender']; ?>
+                                                                </p>
+                                                            </b>
+                                                        </h3>
 
 
-                                            </div>
-                                        </div>
-                                        <div class="col-md-7">
-                                            <ul class="personal-info">
-                                                <li>
-                                                    <span class="title">Phone:</span>
-                                                    <p class="form-control">
-                                                        <?= $user['phone'];
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-7">
+                                                    <ul class="personal-info">
+                                                        <li>
+                                                            <span class="title">Phone:</span>
+                                                            <p class="form-control">
+                                                                <?= $user['phone'];
                                                                 $GLOBALS['phoneNum'] = $user['phone']; ?>
-                                                    </p>
-                                                </li>
-                                                <li>
-                                                    <span class="title">Email:</span>
-                                                    <p class="form-control">
-                                                        <?= $user['email']; ?>
-                                                    </p>
-                                                </li>
+                                                            </p>
+                                                        </li>
+                                                        <li>
+                                                            <span class="title">Email:</span>
+                                                            <p class="form-control">
+                                                                <?= $user['email']; ?>
+                                                            </p>
+                                                        </li>
 
-                                                <li>
-                                                    <span class="title">Address:</span>
-                                                    <p class="form-control">
-                                                        <?= $user['address']; ?>
-                                                    </p>
-                                                </li>
+                                                        <li>
+                                                            <span class="title">Address:</span>
+                                                            <p class="form-control">
+                                                                <?= $user['address']; ?>
+                                                            </p>
+                                                        </li>
 
-                                            </ul>
-                                        </div>
+                                                    </ul>
+                                                </div>
                                         <?php
                                             } else {
                                                 echo "<h4>No Such Id Found</h4>";
@@ -320,9 +311,10 @@ require 'dbconnectView.php';
                         <tr>
 
                             <td>60</td>
-                            +                            <!-- data for bmi -->
+                            +
+                            <!-- data for bmi -->
                             <td>
-                            <?php
+                                <?php
                                 $server1 = "192.168.1.214";
                                 $user1 = "pi";
                                 $pass1 = "27122001";
@@ -368,47 +360,30 @@ require 'dbconnectView.php';
                                 mysqli_close($conn1);
                                 ?>
 
-                                
+
                             </td>
-                            <td>
-                                <?php 
-                                    $server1 = "192.168.1.214";
-                                    $user1 = "pi";
-                                    $pass1 = "27122001";
-                                    $dbname1 = "healthData";
-                                    
-                                    $conn1 = mysqli_connect($server1, $user1, $pass1, $dbname1);
-                                    
-                                    // Check connection
-                                    if ($conn1 === false) {
-                                        die("ERROR: Could not connect. " . mysqli_connect_error());
+                            <td><span id="temperature"></span>
+                                <script>
+                                    // Function to update the body temperature
+                                    function updateBodyTemperature() {
+                                        // Perform an AJAX request to retrieve the updated body temperature from the server
+                                        var xhr = new XMLHttpRequest();
+                                        xhr.open('GET', 'getTemp.php', true);
+                                        xhr.onreadystatechange = function() {
+                                            if (xhr.readyState === 4 && xhr.status === 200) {
+                                                // Update the body temperature in the HTML
+                                                document.getElementById('temperature').textContent = xhr.responseText;
+                                            }
+                                        };
+                                        xhr.send();
                                     }
 
+                                    // Call the updateBodyTemperature function every 1 second
+                                    setInterval(updateBodyTemperature, 1000);
+                                </script>
 
-                                    $query1 = "SELECT bodyTemp FROM IOT_project WHERE user_id='$user_id' ORDER BY id DESC LIMIT 1";
-                                    $query_run1 = mysqli_query($conn1, $query1);
 
-                                    if ($query_run1) {
-                                        // Check if any rows were returned
-                                        if (mysqli_num_rows($query_run1) > 0) {
-                                            // Fetch the body temperature from the first row
-                                            $row = mysqli_fetch_assoc($query_run1);
-                                            $bodyTemp = $row['bodyTemp'];
-                                    
-                                            // Output the retrieved body temperature
-                                            echo $bodyTemp;
-                                        } else {
-                                            echo "No data found for user ID: " . $user_id;
-                                        }
-                                    } else {
-                                        echo "Error in the query: " . mysqli_error($conn1);
-                                    }
-                                    
-                                    // Close the database connection
-                                    mysqli_close($conn1);
-                                ?>
-                                        
-                            </td>                
+                            </td>
 
 
                         </tr>
