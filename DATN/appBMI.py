@@ -22,7 +22,7 @@ def getUserInfor():
     )
 
     mycursor = mydb.cursor()
-    mycursor.execute(f"SELECT * FROM patients where id = 46")
+    mycursor.execute(f"SELECT * FROM patients where id =  {user_id}")
     myresult = mycursor.fetchone()
 
     res = [0, 0, 0]  # );gender, 1: height, 2: weight
