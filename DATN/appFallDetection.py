@@ -1,47 +1,44 @@
 import numpy as np
 import pandas as pd
 import pickle
-# import mysql.connector
-# import sys
+import mysql.connector
+import sys
 
-# # Access the passed argument
-# variable_from_php = sys.argv[1]
-# user_id = variable_from_php
+# Access the passed argument
+variable_from_php = sys.argv[1]
+user_id = variable_from_php
 
 # gender = 0
 # height = 0
 # weight = 0
 
 
-# def getUserInfor():
-#     mydb = mysql.connector.connect(
-#         host="192.168.1.214",
-#         user="pi",
-#         password="27122001",
-#         database="doctorapp"
-#     )
+def getUserHealth():
+    mydb = mysql.connector.connect(
+        host="192.168.1.214",
+        user="pi",
+        password="27122001",
+        database="healthData"
+    )
 
-#     mycursor = mydb.cursor()
-#     mycursor.execute(f"SELECT * FROM patients where id = 46")
-#     myresult = mycursor.fetchone()
+    mycursor = mydb.cursor()
+    mycursor.execute(
+        f"SELECT * FROM IOT_project WHERE user_id = {user_id} ORDER BY id DESC LIMIT 1")
+    myresult = mycursor.fetchone()
 
-#     res = [0, 0, 0]  # );gender, 1: height, 2: weight
-#     # res.append(int(myresult[2]))  #age
-#     res[1] = int(myresult[8])
-#     res[2] = int(myresult[9])
+    res = [0, 0, 0]  # );HRV, 1: SpO2, 2: Accelerometer
+    res[0] = int(myresult[3])
+    res[1] = int(myresult[4])
+    
 
-#     if myresult[3].upper() == "MALE":
-#         # res.append(1)
-#         res[0] = 1
-#     elif myresult[3].upper() == "FEMALE":
-#         # res.append(0)
-#         res[0] = 0
-
-#     return res
+    if (myresult[7] > 4 and myresult[8] > 4 and myresult[9] > 4):
+        res[2] = 1
+    else:
+        res[2] = 0
+    return res
 
 
 model = pickle.load(open('trained_modelfallDetection.pkl', 'rb'))
-inputValue= [110.19,65.19,1]
 		
 
 def predict():
@@ -62,9 +59,9 @@ def predict():
     return res_val
 
 
-# userInfo = getUserInfor()
+    userInfo = getUserHealth()
 
 
-# inputValue = [userInfo[0],userInfo[1],userInfo[2]]
-text = predict()
-print(text)
+    inputValue = [userInfo[0],userInfo[1],userInfo[2]]
+    text = predict()
+    print(text)

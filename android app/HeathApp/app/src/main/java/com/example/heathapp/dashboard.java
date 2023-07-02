@@ -4,13 +4,19 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.NotificationChannelCompat;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -143,8 +149,37 @@ public class dashboard extends AppCompatActivity implements NavigationView.OnNav
                 String result = putData.getResult();
                 hr.setText(result);
 
+                // Convert the heart rate result to an integer
+                int heartRate = Integer.parseInt(result);
+
+                // Create the notification based on the heart rate value
+                if (heartRate < 60) {
+                    showNotification("Low Heart Rate", "Heart rate is below 60 bpm.");
+                } else if (heartRate > 100) {
+                    showNotification("High Heart Rate", "Heart rate is above 100 bpm.");
+                }
             }
         }
+    }
+
+    private void showNotification(String title, String message) {
+        // Create a notification channel if it doesn't exist
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            NotificationChannel channel = new NotificationChannel("heart_rate_channel", "Heart Rate Channel", NotificationManager.IMPORTANCE_DEFAULT);
+            NotificationManager manager = getSystemService(NotificationManager.class);
+            manager.createNotificationChannel(channel);
+        }
+
+        // Build the notification
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, "heart_rate_channel")
+                .setSmallIcon(R.drawable.notification_icon)
+                .setContentTitle(title)
+                .setContentText(message)
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT);
+
+        // Show the notification
+        NotificationManagerCompat managerCompat = NotificationManagerCompat.from(this);
+        managerCompat.notify(123, builder.build());
     }
 
     private void updateSPO2() {

@@ -47,9 +47,10 @@ byte readLED = 13; //Blinks with each data read
 
 /*----------------------------wifi param--------------------------------*/
 // Insert your network credentials
-char ssid[50] ;
-char pass[50] ;
-char userID[5];
+char ssid[50] = "PHONG TRO 36/4 -1";
+char pass[50] = "0934085190";
+char userID[5] = "46";
+char phone[12] = "12345";
 
 char* host = "192.168.1.214";
 WiFiClient wifiClient;
@@ -148,6 +149,7 @@ void sendDataToDB() {
   wifiClient.print(String("GET http://192.168.1.214/index1.php?") +
                    ("&bpm=") + updatedBPM +
                    ("&spo2=") + updatedSPO2 +
+                   ("&phone=") + phone +
                    ("&userId=") + userID +
                    " HTTP/1.1\r\n" +
                    "Host: " + host + "\r\n" +
@@ -185,8 +187,9 @@ void setup() {
   // put your setup code here, to run once:
   Serial.begin(115200);
 
-  verifyWifiConnection();
-  getUserID();
+//  verifyWifiConnection();
+//  getUserID();
+  connect_wifi();
 
 
   /*---------------------------MAX30100 begin------------------------------*/
