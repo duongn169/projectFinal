@@ -311,9 +311,10 @@ require 'dbconnectView.php';
                         <tr>
 
                             <td>60</td>
+                            +
                             <!-- data for bmi -->
                             <td>
-                            <?php
+                                <?php
                                 $server1 = "192.168.1.214";
                                 $user1 = "pi";
                                 $pass1 = "27122001";
@@ -326,7 +327,7 @@ require 'dbconnectView.php';
                                     die("ERROR: Could not connect. " . mysqli_connect_error());
                                 }
 
-                                $user_id = 46; // Replace with the actual user ID you want to retrieve height and weight for
+                                $user_id = $_GET["id"]; // Replace with the actual user ID you want to retrieve height and weight for
 
                                 $query1 = "SELECT height, weight FROM patients WHERE id='$user_id'";
                                 $query_run1 = mysqli_query($conn1, $query1);
@@ -357,35 +358,42 @@ require 'dbconnectView.php';
 
                                 // Close the database connection
                                 mysqli_close($conn1);
-                                ?>            
+                                ?>
+                                <?php
+                                    $user_id = $_GET['id'];; // The variable you want to send to Python
+
+                                    $pythonScript = 'appBMI.py';
+                                    $command = 'python ' . $pythonScript . ' ' . $user_id;
+
+                                    $output = shell_exec($command);
+
+                                    echo $output;
+                                ?>
+
+
                             </td>
+                            <td><span id="temperature"></span>
+                                <script>
+                                    // Function to update the body temperature
+                                    function updateBodyTemperature() {
+                                        // Perform an AJAX request to retrieve the updated body temperature from the server
+                                        var xhr = new XMLHttpRequest();
+                                        xhr.open('GET', 'getTemp.php', true);
+                                        xhr.onreadystatechange = function() {
+                                            if (xhr.readyState === 4 && xhr.status === 200) {
+                                                // Update the body temperature in the HTML
+                                                document.getElementById('temperature').textContent = xhr.responseText;
+                                            }
+                                        };
+                                        xhr.send();
+                                    }
+
+                                    // Call the updateBodyTemperature function every 1 second
+                                    setInterval(updateBodyTemperature, 1000);
+                                </script>
 
 
-
-
-
-                            <td><span id="bodyTemp"></span></td>   
-                            <script>
-                                function updateBodyTemperature() {
-                                    $.ajax({
-                                        url: 'get_body_temperature.php',
-                                        method: 'GET',
-                                        dataType: 'text',
-                                        success: function (response) {
-                                            $('#bodyTemp').text(response);
-                                        },
-                                        error: function (xhr, status, error) {
-                                            console.log('Error:', error);
-                                        }
-                                    });
-                                }
-
-                                // Call the updateBodyTemperature function initially
-                                updateBodyTemperature();
-
-                                // Call the updateBodyTemperature function every 1 second
-                                setInterval(updateBodyTemperature, 1000);
-                            </script>             
+                            </td>
 
 
                         </tr>
