@@ -29,7 +29,7 @@ require 'dbconnectView.php';
     <div class="main-wrapper">
         <div class="header">
             <div class="header-left">
-                <a href="index.php" class="logo">
+                <a href="patients.php" class="logo">
                     <img src="assets/img/logo.png" width="35" height="35" alt=""> <span>Preclinic</span>
                 </a>
             </div>
@@ -86,11 +86,14 @@ require 'dbconnectView.php';
                     </div>
                 </li>
                 <li class="nav-item dropdown d-none d-sm-block">
-                    <a href="javascript:void(0);" id="open_msg_box" class="hasnotifications nav-link"><i class="fa fa-comment-o"></i> <span class="badge badge-pill bg-danger float-right">8</span></a>
+                    <a href="javascript:void(0);" id="open_msg_box" class="hasnotifications nav-link"><i
+                            class="fa fa-comment-o"></i> <span
+                            class="badge badge-pill bg-danger float-right">8</span></a>
                 </li>
                 <li class="nav-item dropdown has-arrow">
                     <a href="#" class="dropdown-toggle nav-link user-link" data-toggle="dropdown">
-                        <span class="user-img"><img class="rounded-circle" src="assets/img/user.jpg" width="40" alt="Admin">
+                        <span class="user-img"><img class="rounded-circle" src="assets/img/user.jpg" width="40"
+                                alt="Admin">
                             <span class="status online"></span></span>
                         <span>Admin</span>
                     </a>
@@ -101,7 +104,8 @@ require 'dbconnectView.php';
                 </li>
             </ul>
             <div class="dropdown mobile-user-menu float-right">
-                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
+                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i
+                        class="fa fa-ellipsis-v"></i></a>
                 <div class="dropdown-menu dropdown-menu-right">
 
                     <a class="dropdown-item" href="login.php">Logout</a>
@@ -113,9 +117,7 @@ require 'dbconnectView.php';
                 <div id="sidebar-menu" class="sidebar-menu">
                     <ul>
                         <li class="menu-title">Main</li>
-                        <li>
-                            <a href="index.php"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a>
-                        </li>
+
 
                         <li class="active">
                             <a href="patients.php"><i class="fa fa-wheelchair"></i> <span>Patients</span></a>
@@ -124,7 +126,8 @@ require 'dbconnectView.php';
 
 
                         <li class="submenu">
-                            <a href="#"><i class="fa fa-columns"></i> <span>Account</span> <span class="menu-arrow"></span></a>
+                            <a href="#"><i class="fa fa-columns"></i> <span>Account</span> <span
+                                    class="menu-arrow"></span></a>
                             <ul style="display: none;">
                                 <li><a href="login.php"> Login </a></li>
                                 <li><a href="register.php"> Register </a></li>
@@ -167,22 +170,25 @@ require 'dbconnectView.php';
                                     if (mysqli_num_rows($query_run) > 0) {
                                         foreach ($query_run as $user) {
                                     ?>
-                                            <tr>
-                                                <td><?= $user['id']; ?></td>
-                                                <td><?= $user['name']; ?></td>
-                                                <td><?= $user['age']; ?></td>
-                                                <td><?= $user['gender']; ?></td>
-                                                <td><?= $user['email']; ?></td>
-                                                <td><?= $user['phone']; ?></td>
-                                                <td><?= $user['address']; ?></td>
-                                                <td>
-                                                    <a href="view-patient.php?id=<?= $user['id']; ?>" class="btn btn-info btn-sm">View</a>
-                                                    <a href="edit-patient.php?id=<?= $user['id']; ?>" class="btn btn-success btn-sm">Edit</a>
-                                                    <form action="code.php" method="POST" class="d-inline">
-                                                        <button type="submit" name="delete_user" value="<?= $user['id']; ?>" class="btn btn-danger btn-sm">Delete</button>
-                                                    </form>
-                                                </td>
-                                            </tr>
+                                    <tr>
+                                        <td><?= $user['id']; ?></td>
+                                        <td><?= $user['name']; ?></td>
+                                        <td><?= $user['age']; ?></td>
+                                        <td><?= $user['gender']; ?></td>
+                                        <td><?= $user['email']; ?></td>
+                                        <td><?= $user['phone']; ?></td>
+                                        <td><?= $user['address']; ?></td>
+                                        <td>
+                                            <a href="view-patient.php?id=<?= $user['id']; ?>"
+                                                class="btn btn-info btn-sm">View</a>
+                                            <a href="edit-patient.php?id=<?= $user['id']; ?>"
+                                                class="btn btn-success btn-sm">Edit</a>
+                                            <form action="code.php" method="POST" class="d-inline">
+                                                <button type="submit" name="delete_user" value="<?= $user['id']; ?>"
+                                                    class="btn btn-danger btn-sm">Delete</button>
+                                            </form>
+                                        </td>
+                                    </tr>
                                     <?php
                                         }
                                     } else {
