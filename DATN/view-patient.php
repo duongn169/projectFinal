@@ -311,7 +311,7 @@ require 'dbconnectView.php';
                         <tr>
 
                             <td>60</td>
-                            +                            <!-- data for bmi -->
+                            <!-- data for bmi -->
                             <td>
                             <?php
                                 $server1 = "192.168.1.214";
@@ -357,49 +357,35 @@ require 'dbconnectView.php';
 
                                 // Close the database connection
                                 mysqli_close($conn1);
-                                ?>
-
-                                
+                                ?>            
                             </td>
-                            <td>
-                                <?php 
-                                    $server1 = "192.168.1.214";
-                                    $user1 = "pi";
-                                    $pass1 = "27122001";
-                                    $dbname1 = "healthData";
-                                    
-                                    $conn1 = mysqli_connect($server1, $user1, $pass1, $dbname1);
-                                    
-                                    // Check connection
-                                    if ($conn1 === false) {
-                                        die("ERROR: Could not connect. " . mysqli_connect_error());
-                                    }
 
 
-                                    $query1 = "SELECT bodyTemp FROM IOT_project WHERE user_id='$user_id' ORDER BY id DESC LIMIT 1";
-                                    $query_run1 = mysqli_query($conn1, $query1);
 
-                                    if ($query_run1) {
-                                        // Check if any rows were returned
-                                        if (mysqli_num_rows($query_run1) > 0) {
-                                            // Fetch the body temperature from the first row
-                                            $row = mysqli_fetch_assoc($query_run1);
-                                            $bodyTemp = $row['bodyTemp'];
-                                    
-                                            // Output the retrieved body temperature
-                                            echo $bodyTemp;
-                                        } else {
-                                            echo "No data found for user ID: " . $user_id;
+
+
+                            <td><span id="bodyTemp"></span></td>   
+                            <script>
+                                function updateBodyTemperature() {
+                                    $.ajax({
+                                        url: 'get_body_temperature.php',
+                                        method: 'GET',
+                                        dataType: 'text',
+                                        success: function (response) {
+                                            $('#bodyTemp').text(response);
+                                        },
+                                        error: function (xhr, status, error) {
+                                            console.log('Error:', error);
                                         }
-                                    } else {
-                                        echo "Error in the query: " . mysqli_error($conn1);
-                                    }
-                                    
-                                    // Close the database connection
-                                    mysqli_close($conn1);
-                                ?>
-                                        
-                            </td>                
+                                    });
+                                }
+
+                                // Call the updateBodyTemperature function initially
+                                updateBodyTemperature();
+
+                                // Call the updateBodyTemperature function every 1 second
+                                setInterval(updateBodyTemperature, 1000);
+                            </script>             
 
 
                         </tr>
