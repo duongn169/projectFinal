@@ -327,7 +327,7 @@ require 'dbconnectView.php';
                                     die("ERROR: Could not connect. " . mysqli_connect_error());
                                 }
 
-                                $user_id = 46; // Replace with the actual user ID you want to retrieve height and weight for
+                                $user_id = $_GET["id"]; // Replace with the actual user ID you want to retrieve height and weight for
 
                                 $query1 = "SELECT height, weight FROM patients WHERE id='$user_id'";
                                 $query_run1 = mysqli_query($conn1, $query1);
@@ -358,6 +358,16 @@ require 'dbconnectView.php';
 
                                 // Close the database connection
                                 mysqli_close($conn1);
+                                ?>
+                                <?php
+                                    $user_id = $_GET['id'];; // The variable you want to send to Python
+
+                                    $pythonScript = 'appBMI.py';
+                                    $command = 'python ' . $pythonScript . ' ' . $user_id;
+
+                                    $output = shell_exec($command);
+
+                                    echo $output;
                                 ?>
 
 

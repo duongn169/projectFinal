@@ -19,6 +19,7 @@ float maxRotX=0, maxRotY=0, maxRotZ=0;
 char ssid[50] = "PHONG TRO 36/4 -1";
 char pass[50] = "0934085190";
 char userID[5] = "46";
+char phone[12] = "12345";
 
 char* host = "192.168.1.214";
 WiFiClient wifiClient;
@@ -196,6 +197,7 @@ void sendDataToDB(float bodyTemp){
                               ("&rotX=") + maxRotX + 
                               ("&rotY=") + maxRotY + 
                               ("&rotZ=") + maxRotZ + 
+                              ("&phone=") + phone +
                               ("&userId=") + userID + 
                               " HTTP/1.1\r\n" +
                      "Host: " + host + "\r\n" +
@@ -307,5 +309,5 @@ void loop() {
   sendDataToDB(bodyTemp);
 
   Serial.println();
-  delay(500);
+  delay(1000);
 }
