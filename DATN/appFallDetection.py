@@ -12,6 +12,9 @@ user_id = variable_from_php
 # height = 0
 # weight = 0
 
+x_pre = 0
+y_pre = 0
+z_pre = 0
 
 def getUserHealth():
     mydb = mysql.connector.connect(
@@ -29,13 +32,26 @@ def getUserHealth():
     res = [0, 0, 0]  # );HRV, 1: SpO2, 2: Accelerometer
     res[0] = 95
     res[1] = 95
+    rot_x = myresult[7]
+    rot_y = myresult[8]
+    rot_z = myresult[9]
     
-
-    if (myresult[7] > 4 or myresult[8] > 4 or myresult[9] > 4):
+    x = myresult[10]
+    y = myresult[11]
+    z = myresult[12]
+    if (x < x_pre and y != y_pre and z != z_pre) and (rot_x > 2 or rot_y >2 or rot_z > 2) :
         res[2] = 1
     else:
         res[2] = 0
+    x_pre = x
+    y_pre = y
+    z_pre = z
     return res
+        
+        
+
+    
+     
 
 
 model = pickle.load(open('trained_modelfallDetection.pkl', 'rb'))
